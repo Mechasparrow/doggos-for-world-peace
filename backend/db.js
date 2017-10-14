@@ -17,4 +17,5 @@ function init_firebase() {
 
     firebase.initializeApp(config)
 
+    return firebase.database()
 }

@@ -1,9 +1,9 @@
 module.exports = {
-    viewLoaners: viewLoaners
+    viewLoaners: viewLoanerPets
 }
 
-function viewLoaners(uid) {
-    const loaners = []
-
-    return loaners
+function viewLoanerPets(db, uid) {
+    return db.ref('/pets/').once('value').then(function (snapshot) {
+        return snapshot.val()
+    })
 }

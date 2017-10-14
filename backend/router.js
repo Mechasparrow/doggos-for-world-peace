@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-require('./db').init()
+const db = require('./db').init()
 const borrower = require('./borrower')
 
 // ROUTES
@@ -48,12 +48,7 @@ function login(res, req) {
  *   "status": "success|failure",
  *   "results": [
  *      {
- *          "id": "", // string -- uid of the pet that can be used to get more info upon request
- *          "name": "", // string
- *          "breed": "", // string
- *          "distance": 1000, // In miles
- *          "img": "" // link to image (string)
- *
+ *          ... literally all the crap about the pet goes here
  *      }
  *      ...
  *   ]
@@ -64,10 +59,12 @@ function login(res, req) {
  *
  * */
 function viewLoaners(res, req) {
-    req.send(JSON.stringify({
-        status: "success",
-        results: borrower.viewLoaners(res.query.uid)
-    }, null, 2))
+    borrower.viewLoaners(db, res.query.uid).then(function (data) {
+        req.send(JSON.stringify({
+            status: "success",
+            results: data
+        }))
+    })
 }
 
 function viewLoanRequests(res, req) {
