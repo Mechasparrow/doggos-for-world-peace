@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import {ViewPetsPage} from '../view-pets/view-pets';
+import {ViewRequestsPage} from '../view-requests/view-requests';
 
 import {Borrower} from '../../models/Borrower';
 
@@ -24,10 +25,18 @@ export class BorrowerViewPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.borrower = <Borrower>this.navParams.get('borrower');
+    console.log(this.borrower.borrower_id);
   }
 
   viewPets() {
     this.navCtrl.push(ViewPetsPage, {});
+  }
+
+  viewRequests() {
+    this.navCtrl.push(ViewRequestsPage, {
+      user_type: "borrower",
+      borrower_id: this.borrower.borrower_id
+    })
   }
 
   ionViewDidLoad() {

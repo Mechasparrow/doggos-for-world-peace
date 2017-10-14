@@ -61,11 +61,11 @@ export class DoggosApi {
         var borrower_keys = Object.keys(<any>borrowers);
 
 
-        var new_borrowers = (<any>borrower_keys).map(function (item) {
+        var new_borrowers = (<any>borrower_keys).map(function (item, index) {
           var selected_borrower = borrowers[item];
 
           var borrower:Borrower = <Borrower> {
-            borrower_id: item,
+            borrower_id: index,
             name: (<any>selected_borrower).bio.name,
             profile: (<any>selected_borrower).bio.profile,
             img: (<any>selected_borrower).img,
@@ -100,12 +100,12 @@ export class DoggosApi {
         var loaners = (<any>data).loaners;
         var loaners_keys = Object.keys(<any>loaners);
 
-        var new_loaners = loaners_keys.map(function (item) {
+        var new_loaners = loaners_keys.map(function (item,index) {
 
           var selected_loaner = loaners[item];
 
           var loaner:Loaner = <Loaner> {
-            loaner_id: parseInt(item),
+            loaner_id: index,
             auth_username: (<any>selected_loaner).auth.username,
             auth_password: (<any>selected_loaner).auth.password,
             name: (<any>selected_loaner).bio.name,
@@ -128,6 +128,35 @@ export class DoggosApi {
     })
 
     return loaners_promise;
+
+  }
+
+  getIncomingBorrowerRequests(borrower_id:number) {
+
+    let that = this;
+
+    var request_promise = new Promise(function (resolve, reject) {
+
+      that.http.get("https://doggos-for-world-peace.herokuapp.com/database.json").subscribe(function (data) {
+        var borrowers:any = (<any>data).borrowers;
+
+        var borrower:any = borrowers.find(function (item, index) {
+          return index == borrower_id;
+        })
+
+        var incoming_requests = borrower.requests.incoming;
+
+        resolve(incoming_requests);
+
+      })
+
+    })
+
+    return request_promise;
+
+  }
+
+  getIncomingPetRequests() {
 
   }
 
