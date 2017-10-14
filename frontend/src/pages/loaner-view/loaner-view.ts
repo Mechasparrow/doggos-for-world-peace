@@ -11,6 +11,8 @@ import {DoggosApi} from '../../api/DoggosApi';
 import {LoanerPetViewPage} from '../loaner-pet-view/loaner-pet-view';
 import {ViewBorrowersPage} from '../view-borrowers/view-borrowers';
 
+import {ViewRequestsPage} from '../view-requests/view-requests';
+
 /**
  * Generated class for the LoanerViewPage page.
  *
@@ -48,5 +50,13 @@ export class LoanerViewPage {
       loaner: this.loaner
     });
   }
+
+  viewRequests() {
+    this.navCtrl.push(ViewRequestsPage, {
+      user_type: "loaner",
+      owner_id: this.loaner.loaner_id,
+    })
+  }
+
 
 }
