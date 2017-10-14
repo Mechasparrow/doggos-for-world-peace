@@ -22,7 +22,7 @@ app.get("/loaner/view/matches", viewMatchesWithBorrowers)
 app.get("/loaner/send/request", sendLoanRequest)
 app.get("/loaner/update/profile", updateLoanerProfile)
 
-app.use(express.static('frontend'))
+app.use(express.static('backend/db'))
 
 const port = process.env.PORT || 3000
 
@@ -142,8 +142,23 @@ function viewMatchesWithBorrowers(res, req) {
 
 }
 
+/**
+ * Used when borrower wants to borrow pet from loaner
+ * ?borrower_uid=________&pet_uid=______________
+ *
+ * Response is a JSON object
+ * {
+ *  "status": "success|failure",
+ *  "error": "____"
+ * }
+ * */
 function sendLoanRequest(res, req) {
-
+    loaner.sendLoanRequest(db, res.query.borrower_uid, res.query.pet_uid).then(function (data) {
+        req.send(JSON.stringify({
+            "status": "success",
+            "error": null
+        }))
+    })
 }
 
 function updateLoanerProfile(res, req) {
