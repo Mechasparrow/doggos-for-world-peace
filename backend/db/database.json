@@ -10,6 +10,33 @@
         "profile": "Amateur detective but professional dog lover"
       },
       "geo": {
+        "lat": "41.568443",
+        "lon": "-71.3090926"
+      },
+      "schedule": {
+        "start": "9:00AM",
+        "stop": "5:00PM",
+        "days": [
+          false,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "auth": {
+        "username": "PeterG123",
+        "password": "birdistheword"
+      },
+      "bio": {
+        "name": "Peter Griffin",
+        "profile": "Middle-aged brewery worker, and quite the family guy."
+      },
+      "geo": {
         "lat": "38.627003",
         "lon": "-90.199404"
       },
@@ -24,6 +51,60 @@
           true,
           false,
           false
+        ]
+      }
+    },
+    {
+      "auth": {
+        "username": "JonA1978",
+        "password": "liz"
+      },
+      "bio": {
+        "name": "Jon Arbuckle",
+        "profile": "Cartoonist, Cat lover, TV star"
+      },
+      "geo": {
+        "lat": "78.627003",
+        "lon": "-54.199404"
+      },
+      "schedule": {
+        "start": "10:00AM",
+        "stop": "6:00PM",
+        "days": [
+          false,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "auth": {
+        "username": "Hakase",
+        "password": "professor"
+      },
+      "bio": {
+        "name": "Shinonome Hakase",
+        "profile": "Young Scientist, I love inventing, and sharks are awesome."
+      },
+      "geo": {
+        "lat": "36.148063",
+        "lon": "-139.219873"
+      },
+      "schedule": {
+        "start": "9:00AM",
+        "stop": "5:00PM",
+        "days": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
         ]
       }
     }
@@ -49,8 +130,94 @@
       "description": "Playful and fun dog, great to hang out with. Unfortunately I can't take care of him when I'm at my day job.",
       "requests": {
         "incoming": [],
-        "outgoing": [],
-        "matches": []
+        "outgoing": [
+        ],
+        "matches": [
+        ]
+      }
+    },
+    {
+      "name": "Brian Griffin",
+      "owner": "1",
+      "img": "https://i.imgur.com/UFwKfY4.jpg",
+      "age": "8",
+      "breed": "White Labrador",
+      "size": "medium",
+      "medical": [
+        "HIstory of dying"
+      ],
+      "personality": {
+        "temperament": "argumentative",
+        "description": "liberal"
+      },
+      "verified": true,
+      "sheds": false,
+      "care": "No special care required",
+      "description": "With Lois' new job, and the kids going to school, and me having to go the the brewery, he gets pretty bored alone, luckily he has a driver's license so transportation shouldn't be an issue.",
+      "requests": {
+        "incoming": [],
+        "outgoing": [
+        ],
+        "matches": [
+        ]
+      }
+    },
+    {
+      "name": "Garfield Arbuckle",
+      "owner": "2",
+      "img": "https://i.imgur.com/Ur6DTy8.jpg",
+      "age": "39",
+      "breed": "Orange",
+      "size": "medium",
+      "medical": [
+        "Overweight"
+      ],
+      "personality": {
+        "temperament": "Calm",
+        "description": "Very Lazy, Likes to sleep"
+      },
+      "verified": true,
+      "sheds": false,
+      "care": "Throws a tantrum if he doesn't get lasgagna.",
+      "description": "Lovable cat, gets along very well with people. Loves Lasagna a little too much.",
+      "requests": {
+        "incoming": [
+        ],
+        "outgoing": [
+        ],
+        "matches": [
+        ]
+      }
+    },
+    {
+      "name": "Sakamoto",
+      "owner": "3",
+      "img": "https://vignette.wikia.nocookie.net/nichijou/images/2/28/Sakamoto.jpg/revision/latest?cb=20110506093956",
+      "age": "unknown",
+      "breed": "black",
+      "size": "medium",
+      "medical": [
+        "none"
+      ],
+      "personality": {
+        "temperament": "Laid-Back",
+        "description": "Condescending"
+      },
+      "verified": true,
+      "sheds": false,
+      "care": "Loves to play, Very independant though, just standard care",
+      "description": "Acts like a middle-aged man, but deep down has the heart of a child",
+      "requests": {
+        "incoming": [
+          {
+            "timestamp": 1507997205,
+            "from": "3"
+          }
+        ],
+        "outgoing": [
+        ],
+        "matches": [
+        ]
       }
     }
   ],
@@ -79,7 +246,7 @@
       },
       "bio": {
         "name": "Sherlock Holmes",
-        "profile": "Amateur detective and professional dog lover"
+        "profile": "Part-time detective and full-time dog lover"
       },
       "img": "http://images4.fanpop.com/image/photos/16800000/-Sherlock-sherlock-16827094-2048-1365.jpg",
       "verified": true,
@@ -89,9 +256,154 @@
         "size": "large"
       },
       "requests": {
-        "incoming": [],
-        "outgoing": [],
-        "matches": []
+        "incoming": [
+        ],
+        "outgoing": [
+          {
+            "timestamp": 1507997205,
+            "to": "0"
+          }
+        ],
+        "matches": [
+        ]
+      }
+    },
+    {
+      "auth": {
+        "username": "quagmire",
+        "password": "giggity"
+      },
+      "geo": {
+        "lat": "41.568443",
+        "lon": "-71.3090926"
+      },
+      "schedule": {
+        "start": "9:00AM",
+        "stop": "5:00PM",
+        "days": [
+          false,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false
+        ]
+      },
+      "bio": {
+        "name": "Glenn Quagmire",
+        "profile": "Lady's man who just loooooves pets. Plus, dogs are great chick-magnets!"
+      },
+      "img": "https://vignette.wikia.nocookie.net/familyguy/images/1/1f/Quagmire.PNG/revision/latest?cb=20100905024312",
+      "verified": true,
+      "preferences": {
+        "sheds": false,
+        "age": "any",
+        "size": "medium"
+      },
+      "requests": {
+        "incoming": [
+        ],
+        "outgoing": [
+          {
+            "timestamp": 1507997205,
+            "to": "1"
+          }
+        ],
+        "matches": [
+        ]
+      }
+    },
+    {
+      "auth": {
+        "username": "LizzyW",
+        "password": "password1"
+      },
+      "geo": {
+        "lat": "78.627003",
+        "lon": "-54.199404"
+      },
+      "schedule": {
+        "start": "9:00AM",
+        "stop": "5:00PM",
+        "days": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true
+        ]
+      },
+      "bio": {
+        "name": "Dr. Liz Wilson",
+        "profile": "Proud Veterinarian, I love animals, but don't have the time to care for one of my own"
+      },
+      "img": "https://vignette.wikia.nocookie.net/garfield/images/5/5c/Dr._Liz_Wilson.jpg/revision/latest?cb=20161218055337",
+      "verified": true,
+      "preferences": {
+        "sheds": false,
+        "age": "any",
+        "size": "medium"
+      },
+      "requests": {
+        "incoming": [
+        ],
+        "outgoing": [
+          {
+            "timestamp": 1507997205,
+            "to": "2"
+          }
+        ],
+        "matches": [
+        ]
+      }
+    },
+    {
+      "auth": {
+        "username": "YuukoAI",
+        "password": "SelematPagi"
+      },
+      "geo": {
+        "lat": "36.148063,",
+        "lon": "139.98437"
+      },
+      "schedule": {
+        "start": "9:00AM",
+        "stop": "5:00PM",
+        "days": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true
+        ]
+      },
+      "bio": {
+        "name": "Yuuko Aioi",
+        "profile": "High School student, I've always wanted to have a cat, but my parents won't let me have one full time."
+      },
+      "img": "https://vignette.wikia.nocookie.net/nichijou/images/8/81/114021.jpg/revision/latest?cb=20110507140142",
+      "verified": true,
+      "preferences": {
+        "sheds": false,
+        "age": "any",
+        "size": "medium"
+      },
+      "requests": {
+        "incoming": [
+        ],
+        "outgoing": [
+          {
+            "timestamp": 1507997205,
+            "to": "3"
+          }
+        ],
+        "matches": [
+        ]
       }
     }
   ]
