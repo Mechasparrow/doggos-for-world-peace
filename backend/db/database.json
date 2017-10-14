@@ -208,12 +208,7 @@
       "care": "Loves to play, Very independant though, just standard care",
       "description": "Acts like a middle-aged man, but deep down has the heart of a child",
       "requests": {
-        "incoming": [
-          {
-            "timestamp": 1507997205,
-            "from": "3"
-          }
-        ],
+        "incoming": [],
         "outgoing": [
         ],
         "matches": [
@@ -258,12 +253,7 @@
       "requests": {
         "incoming": [
         ],
-        "outgoing": [
-          {
-            "timestamp": 1507997205,
-            "to": "0"
-          }
-        ],
+        "outgoing": [],
         "matches": [
         ]
       }
@@ -305,10 +295,6 @@
         "incoming": [
         ],
         "outgoing": [
-          {
-            "timestamp": 1507997205,
-            "to": "1"
-          }
         ],
         "matches": [
         ]
@@ -351,10 +337,6 @@
         "incoming": [
         ],
         "outgoing": [
-          {
-            "timestamp": 1507997205,
-            "to": "2"
-          }
         ],
         "matches": [
         ]
@@ -397,10 +379,6 @@
         "incoming": [
         ],
         "outgoing": [
-          {
-            "timestamp": 1507997205,
-            "to": "3"
-          }
         ],
         "matches": [
         ]
