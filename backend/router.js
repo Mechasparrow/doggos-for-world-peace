@@ -2,6 +2,11 @@ const express = require('express')
 const app = express()
 const borrower = require('./borrower')
 const loaner = require('./loaner')
+const cors = require('cors');
+
+//CORS
+app.use(cors());
+
 
 // ROUTES
 app.get("/user/signup", signup)
