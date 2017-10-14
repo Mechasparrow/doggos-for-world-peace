@@ -22,6 +22,8 @@ import {LoanerViewPage} from '../pages/loaner-view/loaner-view';
 
 import {LoanerPetViewPage} from '../pages/loaner-pet-view/loaner-pet-view';
 
+import {ViewBorrowersPage} from '../pages/view-borrowers/view-borrowers';
+
 
 import {HttpClientModule} from '@angular/common/http';
 
@@ -31,6 +33,7 @@ import {HttpClientModule} from '@angular/common/http';
     HomePage,
     BorrowerLoginPage,
     BorrowerViewPage,
+    ViewBorrowersPage,
     LoanerLoginPage,
     LoanerViewPage,
     LoanerPetViewPage
@@ -47,6 +50,7 @@ import {HttpClientModule} from '@angular/common/http';
     HomePage,
     BorrowerLoginPage,
     BorrowerViewPage,
+    ViewBorrowersPage,
     LoanerLoginPage,
     LoanerViewPage,
     LoanerPetViewPage
