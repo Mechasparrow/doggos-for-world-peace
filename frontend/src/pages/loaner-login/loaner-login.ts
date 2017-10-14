@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import {HttpClient} from '@angular/common/http';
 import {DoggosApi} from '../../api/DoggosApi';
 
 import {LoanerViewPage} from '../loaner-view/loaner-view';
@@ -24,7 +25,14 @@ export class LoanerLoginPage {
     password: ""
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public doggos_api:DoggosApi;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpClient) {
+    this.doggos_api = new DoggosApi(http);
+    this.doggos_api.getLoaners().then (function (loaners) {
+      console.log(loaners);
+    })
+
 
   }
 
@@ -34,7 +42,7 @@ export class LoanerLoginPage {
 
   onSubmit() {
 
-    var login_promise = DoggosApi.LoanerLogin(this.login.username, this.login.password);
+    var login_promise = this.doggos_api.LoanerLogin(this.login.username, this.login.password);
 
     let that = this;
 
@@ -42,6 +50,8 @@ export class LoanerLoginPage {
       that.navCtrl.push( LoanerViewPage, {
         loaner: loaner
       })
+    }).catch(function (error) {
+      alert(error);
     })
 
 
