@@ -1,21 +1,14 @@
 module.exports = {
-    init: init_firebase
+    read: read,
+    write: write
 }
 
-function init_firebase() {
-    const firebase = require('firebase');
+const fs = require('fs')
 
-    // Initialize Firebase
-    const config = {
-        apiKey: "AIzaSyAEmZRfzvfyGmlRWsGvb52oYSsQKj1BX7s",
-        authDomain: "doggos-for-world-peace.firebaseapp.com",
-        databaseURL: "https://doggos-for-world-peace.firebaseio.com",
-        projectId: "doggos-for-world-peace",
-        storageBucket: "doggos-for-world-peace.appspot.com",
-        messagingSenderId: "400258579410"
-    }
+function read() {
+    return JSON.parse(fs.readFileSync('./backend/db/database.json'))
+}
 
-    firebase.initializeApp(config)
-
-    return firebase.database()
+function write(data) {
+    fs.writeFileSync("./backend/db/database.json", JSON.stringify(data, null, 2))
 }

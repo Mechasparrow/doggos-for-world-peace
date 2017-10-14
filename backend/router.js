@@ -1,8 +1,12 @@
 const express = require('express')
 const app = express()
-const db = require('./db').init()
 const borrower = require('./borrower')
 const loaner = require('./loaner')
+const cors = require('cors');
+
+//CORS
+app.use(cors());
+
 
 // ROUTES
 app.get("/user/signup", signup)
@@ -22,7 +26,7 @@ app.get("/loaner/view/matches", viewMatchesWithBorrowers)
 app.get("/loaner/send/request", sendLoanRequest)
 app.get("/loaner/update/profile", updateLoanerProfile)
 
-app.use(express.static('frontend'))
+app.use(express.static('backend/db'))
 
 const port = process.env.PORT || 3000
 
@@ -60,12 +64,10 @@ function login(res, req) {
  *
  * */
 function viewLoaners(res, req) {
-    borrower.viewLoaners(db, res.query.uid).then(function (data) {
-        req.send(JSON.stringify({
-            status: "success",
-            results: data
-        }))
-    })
+    req.send(JSON.stringify({
+        status: "success",
+        results: borrower.viewLoaners(res.query.uid)
+    }))
 }
 
 function viewLoanRequests(res, req) {
@@ -87,12 +89,11 @@ function viewMatchesWithLoaners(res, req) {
  * }
  * */
 function sendBorrowRequest(res, req) {
-    borrower.sendRequest(db, res.query.borrower_uid, res.query.pet_uid).then(function (data) {
-        req.send(JSON.stringify({
-            "status": "success",
-            "error": null
-        }))
-    })
+    borrower.sendRequest(res.query.borrower_uid, res.query.pet_uid)
+    req.send(JSON.stringify({
+        "status": "success",
+        "error": null
+    }))
 }
 
 function updateBorrowerProfile(res, req) {
@@ -126,12 +127,10 @@ function updatePet(res, req) {
  *
  * */
 function viewBorrowers(res, req) {
-    loaner.viewBorrowers(db, res.query.uid).then(function (data) {
-        req.send(JSON.stringify({
-            status: "success",
-            results: data
-        }))
-    })
+    req.send(JSON.stringify({
+        status: "success",
+        results: loaner.viewBorrowers(res.query.uid)
+    }))
 }
 
 function viewBorrowRequests(res, req) {
@@ -142,12 +141,24 @@ function viewMatchesWithBorrowers(res, req) {
 
 }
 
+/**
+ * Used when borrower wants to borrow pet from loaner
+ * ?borrower_uid=________&pet_uid=______________
+ *
+ * Response is a JSON object
+ * {
+ *  "status": "success|failure",
+ *  "error": "____"
+ * }
+ * */
 function sendLoanRequest(res, req) {
-
+    loaner.sendLoanRequest(res.query.borrower_uid, res.query.pet_uid)
+    req.send(JSON.stringify({
+        "status": "success",
+        "error": null
+    }))
 }
 
 function updateLoanerProfile(res, req) {
 
 }
-
-db.ref("pets/0/requests/incoming").once("value").then((x) => console.log(x.val()))
