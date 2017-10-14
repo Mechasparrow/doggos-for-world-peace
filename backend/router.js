@@ -76,8 +76,23 @@ function viewMatchesWithLoaners(res, req) {
 
 }
 
+/**
+ * Used when borrower wants to borrow pet from loaner
+ * ?borrower_uid=________&pet_uid=______________
+ *
+ * Response is a JSON object
+ * {
+ *  "status": "success|failure",
+ *  "error": "____"
+ * }
+ * */
 function sendBorrowRequest(res, req) {
-
+    borrower.sendRequest(db, res.query.borrower_uid, res.query.pet_uid).then(function (data) {
+        req.send(JSON.stringify({
+            "status": "success",
+            "error": null
+        }))
+    })
 }
 
 function updateBorrowerProfile(res, req) {
@@ -134,3 +149,5 @@ function sendLoanRequest(res, req) {
 function updateLoanerProfile(res, req) {
 
 }
+
+db.ref("pets/0/requests/incoming").once("value").then((x) => console.log(x.val()))
