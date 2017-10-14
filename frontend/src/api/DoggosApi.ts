@@ -18,7 +18,7 @@ export class DoggosApi {
 
       var pets_promise = new Promise(function (resolve, reject) {
 
-        that.http.get('/assets/data/data.json').subscribe(data => {
+        that.http.get('https://doggos-for-world-peace.firebaseio.com/.json').subscribe(data => {
           var pets = (<any>data).pets;
           var pet_keys = Object.keys(<any>pets);
 
@@ -56,7 +56,7 @@ export class DoggosApi {
 
     var borrowers_promise = new Promise(function (resolve, reject) {
 
-      that.http.get('/assets/data/data.json').subscribe(data => {
+      that.http.get('https://doggos-for-world-peace.firebaseio.com/.json').subscribe(data => {
         var borrowers = (<any>data).borrowers;
         var borrower_keys = Object.keys(<any>borrowers);
 
@@ -96,7 +96,7 @@ export class DoggosApi {
 
     var loaners_promise = new Promise(function (resolve, reject) {
 
-      that.http.get('/assets/data/data.json').subscribe(data => {
+      that.http.get('https://doggos-for-world-peace.firebaseio.com/.json').subscribe(data => {
         var loaners = (<any>data).loaners;
         var loaners_keys = Object.keys(<any>loaners);
 
