@@ -4,13 +4,20 @@ module.exports = {
 }
 
 const db = require('./db')
+const geo = require('./geo')
 
 function viewLoanerPets(uid) {
-    const results = db.read().pets.map((pet) => {
+    const data = db.read()
+
+    const distance = geo.distance(data.borrowers[uid])
+
+    const results = data.pets.map((pet) => {
         delete pet.requests
+        pet.distance = distance(data.loaners[parseInt(pet.owner)]) / 1000 * 0.62137
         return pet
     })
-    return results
+
+    return results.sort((a, b) => a.distance - b.distance)
 }
 
 function sendBorrowRequest(borrower_uid, pet_uid) {
