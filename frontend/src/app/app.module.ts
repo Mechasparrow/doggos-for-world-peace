@@ -4,6 +4,9 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+//Import the form module
+import { FormsModule } from '@angular/forms';
+
 import { MyApp } from './app.component';
 
 //Import the pages
@@ -22,7 +25,8 @@ import {LoanerLoginPage} from '../pages/loaner-login/loaner-login';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    FormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
