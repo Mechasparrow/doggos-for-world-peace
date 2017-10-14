@@ -1,5 +1,5 @@
 <!--
-  Generated template for the LoanerPetViewPage page.
+  Generated template for the ViewPetsPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color = "primary">
-    <ion-title>View your pets</ion-title>
+    <ion-title>Browse Pets</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,7 +15,7 @@
 
 <ion-content padding>
 
-  <ion-card *ngFor = "let pet of loaner_pets">
+  <ion-card *ngFor = "let pet of pets">
     <ion-card-header>
       {{pet.name}}
     </ion-card-header>

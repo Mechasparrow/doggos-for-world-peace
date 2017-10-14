@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import {ViewPetsPage} from '../view-pets/view-pets';
+
 import {Borrower} from '../../models/Borrower';
+
 
 /**
  * Generated class for the BorrowerViewPage page.
@@ -21,6 +24,10 @@ export class BorrowerViewPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.borrower = <Borrower>this.navParams.get('borrower');
+  }
+
+  viewPets() {
+    this.navCtrl.push(ViewPetsPage, {});
   }
 
   ionViewDidLoad() {

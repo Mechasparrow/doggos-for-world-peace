@@ -9,6 +9,7 @@ import {DoggosApi} from '../../api/DoggosApi';
 
 //Import the pages
 import {LoanerPetViewPage} from '../loaner-pet-view/loaner-pet-view';
+import {ViewBorrowersPage} from '../view-borrowers/view-borrowers';
 
 /**
  * Generated class for the LoanerViewPage page.
@@ -36,6 +37,10 @@ export class LoanerViewPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoanerViewPage');
+  }
+
+  viewBorrowers() {
+      this.navCtrl.push(ViewBorrowersPage, {});
   }
 
   viewPets() {
