@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import {Loaner} from '../../models/Loaner';
+
 /**
  * Generated class for the LoanerViewPage page.
  *
@@ -15,7 +17,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LoanerViewPage {
 
+  public loaner:Loaner = new Loaner();
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.loaner = <Loaner> this.navParams.get('loaner');
   }
 
   ionViewDidLoad() {
