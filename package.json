@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Mechasparrow/doggos-for-world-peace/issues"
   },
-  "homepage": "https://github.com/Mechasparrow/doggos-for-world-peace#readme"
+  "homepage": "https://github.com/Mechasparrow/doggos-for-world-peace#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }
