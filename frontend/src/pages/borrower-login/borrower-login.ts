@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import {DoggosApi} from '../../api/DoggosApi';
+
 /**
  * Generated class for the BorrowerLoginPage page.
  *
@@ -15,11 +17,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class BorrowerLoginPage {
 
+  public login:any = {
+    username: "",
+    password: ""
+  }
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BorrowerLoginPage');
+  }
+
+  onSubmit() {
+
+    var login_promise = DoggosApi.BorrowerLogin(this.login.username, this.login.password);
+
+    login_promise.then (function (borrower) {
+      alert("Login success!");
+    })
+
   }
 
 }

@@ -6,13 +6,29 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>BorrowerLoginPage</ion-title>
+  <ion-navbar color = "primary">
+    <ion-title>Borrower Login</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <form (ngSubmit) = "onSubmit()">
+    <ion-item>
+      <ion-label>Username:</ion-label>
+      <ion-input [(ngModel)] = "login.username" type = "text" name = "username"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Password:</ion-label>
+      <ion-input [(ngModel)] = "login.password" type = "password" name = "password"></ion-input>
+    </ion-item>
+
+    <br>
+    <button ion-button block type = "submit">Submit</button>
+
+  </form>
 
 </ion-content>

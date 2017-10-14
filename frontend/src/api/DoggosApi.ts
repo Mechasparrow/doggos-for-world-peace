@@ -23,4 +23,23 @@ export class DoggosApi {
 
   }
 
+  static BorrowerLogin(username:string, password:string) {
+
+    var new_borrower = <Borrower> {
+      borrower_id: 1,
+      name: "Dana",
+      lat: 40,
+      lon: 30,
+      preferences: "Meh"
+    }
+
+    var login_promise = new Promise (function (resolve, reject) {
+      resolve(new_borrower);
+    })
+
+    return login_promise;
+
+
+  }
+
 }
