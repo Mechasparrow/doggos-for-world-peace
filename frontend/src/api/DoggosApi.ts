@@ -1,5 +1,6 @@
 import {Loaner} from "../models/Loaner";
 import {Borrower} from "../models/Borrower";
+import {Pet} from '../models/Pet';
 
 import {HttpClient} from '@angular/common/http';
 
@@ -11,6 +12,43 @@ export class DoggosApi {
   constructor(private http: HttpClient) {
 
   }
+
+  getPets() {
+      let that = this;
+
+      var pets_promise = new Promise(function (resolve, reject) {
+
+        that.http.get('/assets/data/data.json').subscribe(data => {
+          var pets = (<any>data).pets;
+          var pet_keys = Object.keys(<any>pets);
+
+          var new_pets = (<any>pet_keys).map(function (item) {
+            var selected_pet:any = pets[item];
+            var pet = <Pet> {
+              name: selected_pet.name,
+              owner_id: parseInt(selected_pet.owner),
+              img: selected_pet.img,
+              age: selected_pet.age,
+              breed: selected_pet.breed,
+              size: selected_pet.size,
+              care: selected_pet.care,
+              description: selected_pet.description
+            }
+            return pet;
+
+          })
+
+          resolve(new_pets);
+
+        })
+
+
+      })
+
+      return pets_promise;
+
+  }
+
 
   getBorrowers() {
 
