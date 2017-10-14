@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const db = require('./db').init()
 const borrower = require('./borrower')
 const loaner = require('./loaner')
 
@@ -60,12 +59,10 @@ function login(res, req) {
  *
  * */
 function viewLoaners(res, req) {
-    borrower.viewLoaners(db, res.query.uid).then(function (data) {
-        req.send(JSON.stringify({
-            status: "success",
-            results: data
-        }))
-    })
+    req.send(JSON.stringify({
+        status: "success",
+        results: borrower.viewLoaners(res.query.uid)
+    }))
 }
 
 function viewLoanRequests(res, req) {
@@ -87,12 +84,11 @@ function viewMatchesWithLoaners(res, req) {
  * }
  * */
 function sendBorrowRequest(res, req) {
-    borrower.sendRequest(db, res.query.borrower_uid, res.query.pet_uid).then(function (data) {
-        req.send(JSON.stringify({
-            "status": "success",
-            "error": null
-        }))
-    })
+    borrower.sendRequest(res.query.borrower_uid, res.query.pet_uid)
+    req.send(JSON.stringify({
+        "status": "success",
+        "error": null
+    }))
 }
 
 function updateBorrowerProfile(res, req) {
@@ -126,12 +122,10 @@ function updatePet(res, req) {
  *
  * */
 function viewBorrowers(res, req) {
-    loaner.viewBorrowers(db, res.query.uid).then(function (data) {
-        req.send(JSON.stringify({
-            status: "success",
-            results: data
-        }))
-    })
+    req.send(JSON.stringify({
+        status: "success",
+        results: loaner.viewBorrowers(res.query.uid)
+    }))
 }
 
 function viewBorrowRequests(res, req) {
@@ -153,12 +147,11 @@ function viewMatchesWithBorrowers(res, req) {
  * }
  * */
 function sendLoanRequest(res, req) {
-    loaner.sendLoanRequest(db, res.query.borrower_uid, res.query.pet_uid).then(function (data) {
-        req.send(JSON.stringify({
-            "status": "success",
-            "error": null
-        }))
-    })
+    loaner.sendLoanRequest(res.query.borrower_uid, res.query.pet_uid)
+    req.send(JSON.stringify({
+        "status": "success",
+        "error": null
+    }))
 }
 
 function updateLoanerProfile(res, req) {
