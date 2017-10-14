@@ -19,6 +19,8 @@
   "homepage": "https://github.com/Mechasparrow/doggos-for-world-peace#readme",
   "dependencies": {
     "cors": "^2.8.4",
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "geolib": "^2.0.23",
+    "latlong": "^0.1.1"
   }
 }
