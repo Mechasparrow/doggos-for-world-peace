@@ -40,7 +40,7 @@ import {LoanerViewPage} from '../pages/loaner-view/loaner-view';
     HomePage,
     BorrowerLoginPage,
     BorrowerViewPage,
-    LoanerLoginPage
+    LoanerLoginPage,
     LoanerViewPage
   ],
   providers: [
