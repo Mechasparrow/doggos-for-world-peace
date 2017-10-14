@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const db = require('./db').init()
 const borrower = require('./borrower')
+const loaner = require('./loaner')
 
 // ROUTES
 app.get("/user/signup", signup)
@@ -54,7 +55,7 @@ function login(res, req) {
  *   ]
  * }
  *
- * Status is always gonna be success cuz this is a hackathon amirite
+ * Status is always gonna be success cuz this is a hackathon amirite fam
  *
  *
  * */
@@ -91,8 +92,31 @@ function updatePet(res, req) {
 
 }
 
+/**
+ * Used when loaner wants to view borrowers
+ * ?uid=____ where uid is the uid of the PET, NOT THE OWNER
+ *
+ * Response is JSON of the form
+ * {
+ *  "status": "success|failure",
+ *  "results": [
+ *      {
+ *          ... stuff goes here
+ *      }
+ *      ...
+ *  ]
+ * }
+ *
+ * Status is always gonna be success cuz this is a hackathon amirite fam
+ *
+ * */
 function viewBorrowers(res, req) {
-
+    loaner.viewBorrowers(db, res.query.uid).then(function (data) {
+        req.send(JSON.stringify({
+            status: "success",
+            results: data
+        }))
+    })
 }
 
 function viewBorrowRequests(res, req) {
