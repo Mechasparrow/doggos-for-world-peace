@@ -1,6 +1,6 @@
 {
-  "loaners": {
-    "0": {
+  "loaners": [
+    {
       "auth": {
         "username": "shaggy",
         "password": "puppers"
@@ -27,9 +27,9 @@
         ]
       }
     }
-  },
-  "pets": {
-    "0": {
+  ],
+  "pets": [
+    {
       "name": "Scooby-Doo",
       "owner": "0",
       "img": "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Scooby-Doo.png/150px-Scooby-Doo.png",
@@ -48,19 +48,19 @@
       "care": "Give him mysteries to solve or he'll tear up his couch",
       "description": "Playful and fun dog, great to hang out with. Unfortunately I can't take care of him when I'm at my day job.",
       "requests": {
-        "incoming": {
-          "1": {
+        "incoming": [
+          {
             "timestamp": 1507997205,
             "from": "0"
           }
-        },
-        "outgoing": {},
-        "matches": {}
+        ],
+        "outgoing": [],
+        "matches": []
       }
     }
-  },
-  "borrowers": {
-    "0": {
+  ],
+  "borrowers": [
+    {
       "auth": {
         "username": "sherlock",
         "password": "doggos"
@@ -94,16 +94,15 @@
         "size": "large"
       },
       "requests": {
-        "incoming": {
-        },
-        "outgoing": {
-          "1": {
+        "incoming": [],
+        "outgoing": [
+          {
             "timestamp": 1507997205,
             "to": "0"
           }
-        },
-        "matches": {}
+        ],
+        "matches": []
       }
     }
-  }
+  ]
 }
