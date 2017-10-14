@@ -48,12 +48,7 @@
       "care": "Give him mysteries to solve or he'll tear up his couch",
       "description": "Playful and fun dog, great to hang out with. Unfortunately I can't take care of him when I'm at my day job.",
       "requests": {
-        "incoming": [
-          {
-            "timestamp": 1507997205,
-            "from": "0"
-          }
-        ],
+        "incoming": [],
         "outgoing": [],
         "matches": []
       }
@@ -95,12 +90,7 @@
       },
       "requests": {
         "incoming": [],
-        "outgoing": [
-          {
-            "timestamp": 1507997205,
-            "to": "0"
-          }
-        ],
+        "outgoing": [],
         "matches": []
       }
     }
