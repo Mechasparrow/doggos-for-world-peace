@@ -1,0 +1,109 @@
+{
+  "loaners": {
+    "0": {
+      "auth": {
+        "username": "shaggy",
+        "password": "puppers"
+      },
+      "bio": {
+        "name": "Shaggy Rogers",
+        "profile": "Amateur detective but professional dog lover"
+      },
+      "geo": {
+        "lat": "38.627003",
+        "lon": "-90.199404"
+      },
+      "schedule": {
+        "start": "9:00AM",
+        "stop": "5:00PM",
+        "days": [
+          false,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false
+        ]
+      }
+    }
+  },
+  "pets": {
+    "0": {
+      "name": "Scooby-Doo",
+      "owner": "0",
+      "img": "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Scooby-Doo.png/150px-Scooby-Doo.png",
+      "age": "old",
+      "breed": "Great Dane",
+      "size": "large",
+      "medical": [
+        "speech impediment"
+      ],
+      "personality": {
+        "temperament": "friendly",
+        "description": "talkative"
+      },
+      "verified": true,
+      "sheds": false,
+      "care": "Give him mysteries to solve or he'll tear up his couch",
+      "description": "Playful and fun dog, great to hang out with. Unfortunately I can't take care of him when I'm at my day job.",
+      "requests": {
+        "incoming": {
+          "1": {
+            "timestamp": 1507997205,
+            "from": "0"
+          }
+        },
+        "outgoing": {},
+        "matches": {}
+      }
+    }
+  }
+  "borrowers": {
+    "0": {
+      "auth": {
+        "username": "sherlock",
+        "password": "doggos"
+      },
+      "geo": {
+        "lat": "38.627003",
+        "lon": "-90.199404"
+      },
+      "schedule": {
+        "start": "9:00AM",
+        "stop": "5:00PM",
+        "days": [
+          false,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false
+        ]
+      },
+      "bio": {
+        "name": "Sherlock Holmes",
+        "profile": "Amateur detective and professional dog lover"
+      },
+      "img": "http://images4.fanpop.com/image/photos/16800000/-Sherlock-sherlock-16827094-2048-1365.jpg",
+      "verified": true,
+      "preferences": {
+        "sheds": false,
+        "age": "any",
+        "size": "large"
+      },
+      "requests": {
+        "incoming": {
+        },
+        "outgoing": {
+          "1": {
+            "timestamp": 1507997205,
+            "to": "0"
+          }
+        },
+        "matches": {}
+      }
+    }
+  }
+}
