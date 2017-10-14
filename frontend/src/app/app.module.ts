@@ -20,6 +20,9 @@ import {LoanerLoginPage} from '../pages/loaner-login/loaner-login';
 import {BorrowerViewPage} from '../pages/borrower-view/borrower-view';
 import {LoanerViewPage} from '../pages/loaner-view/loaner-view';
 
+import {LoanerPetViewPage} from '../pages/loaner-pet-view/loaner-pet-view';
+
+
 import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
@@ -29,7 +32,8 @@ import {HttpClientModule} from '@angular/common/http';
     BorrowerLoginPage,
     BorrowerViewPage,
     LoanerLoginPage,
-    LoanerViewPage
+    LoanerViewPage,
+    LoanerPetViewPage
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,8 @@ import {HttpClientModule} from '@angular/common/http';
     BorrowerLoginPage,
     BorrowerViewPage,
     LoanerLoginPage,
-    LoanerViewPage
+    LoanerViewPage,
+    LoanerPetViewPage
   ],
   providers: [
     StatusBar,
