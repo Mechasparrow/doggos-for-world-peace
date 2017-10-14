@@ -129,11 +129,14 @@
       "care": "Give him mysteries to solve or he'll tear up his couch",
       "description": "Playful and fun dog, great to hang out with. Unfortunately I can't take care of him when I'm at my day job.",
       "requests": {
-        "incoming": [],
-        "outgoing": [
+        "incoming": [
+          {
+            "timestamp": 1508024494176,
+            "from": "0"
+          }
         ],
-        "matches": [
-        ]
+        "outgoing": [],
+        "matches": []
       }
     },
     {
@@ -155,11 +158,14 @@
       "care": "No special care required",
       "description": "With Lois' new job, and the kids going to school, and me having to go the the brewery, he gets pretty bored alone, luckily he has a driver's license so transportation shouldn't be an issue.",
       "requests": {
-        "incoming": [],
-        "outgoing": [
+        "incoming": [
+          {
+            "timestamp": 1508024507000,
+            "from": "0"
+          }
         ],
-        "matches": [
-        ]
+        "outgoing": [],
+        "matches": []
       }
     },
     {
@@ -181,12 +187,9 @@
       "care": "Throws a tantrum if he doesn't get lasgagna.",
       "description": "Lovable cat, gets along very well with people. Loves Lasagna a little too much.",
       "requests": {
-        "incoming": [
-        ],
-        "outgoing": [
-        ],
-        "matches": [
-        ]
+        "incoming": [],
+        "outgoing": [],
+        "matches": []
       }
     },
     {
@@ -209,10 +212,8 @@
       "description": "Acts like a middle-aged man, but deep down has the heart of a child",
       "requests": {
         "incoming": [],
-        "outgoing": [
-        ],
-        "matches": [
-        ]
+        "outgoing": [],
+        "matches": []
       }
     }
   ],
@@ -251,11 +252,18 @@
         "size": "large"
       },
       "requests": {
-        "incoming": [
+        "incoming": [],
+        "outgoing": [
+          {
+            "timestamp": 1508024494176,
+            "to": "0"
+          },
+          {
+            "timestamp": 1508024507000,
+            "to": "1"
+          }
         ],
-        "outgoing": [],
-        "matches": [
-        ]
+        "matches": []
       }
     },
     {
@@ -292,12 +300,9 @@
         "size": "medium"
       },
       "requests": {
-        "incoming": [
-        ],
-        "outgoing": [
-        ],
-        "matches": [
-        ]
+        "incoming": [],
+        "outgoing": [],
+        "matches": []
       }
     },
     {
@@ -334,12 +339,9 @@
         "size": "medium"
       },
       "requests": {
-        "incoming": [
-        ],
-        "outgoing": [
-        ],
-        "matches": [
-        ]
+        "incoming": [],
+        "outgoing": [],
+        "matches": []
       }
     },
     {
@@ -376,12 +378,9 @@
         "size": "medium"
       },
       "requests": {
-        "incoming": [
-        ],
-        "outgoing": [
-        ],
-        "matches": [
-        ]
+        "incoming": [],
+        "outgoing": [],
+        "matches": []
       }
     }
   ]
