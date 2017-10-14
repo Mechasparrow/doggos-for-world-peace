@@ -149,5 +149,3 @@ function sendLoanRequest(res, req) {
 function updateLoanerProfile(res, req) {
 
 }
-
-db.ref("pets/0/requests/incoming").once("value").then((x) => console.log(x.val()))

@@ -5,7 +5,11 @@ module.exports = {
 
 function viewLoanerPets(db, uid) {
     return db.ref('/pets/').once('value').then(function (snapshot) {
-        return snapshot.val()
+        const results = snapshot.val().map((pet) => {
+            delete pet.requests
+            return pet
+        })
+        return results
     })
 }
 
