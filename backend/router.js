@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 require('./db').init()
+const borrower = require('./borrower')
 
 // ROUTES
 app.get("/user/signup", signup)
@@ -40,10 +41,7 @@ function login(res, req) {
 /**
  * Used when a borrower wants to view loaners
  *
- * Request is JSON File of the form
- * {
- *   "id": "132156686486" // uid as a string
- * }
+ * Request has a param ?uid=______ where uid is the uid of the borrower
  *
  * Response is JSON of the form
  * {
@@ -66,7 +64,10 @@ function login(res, req) {
  *
  * */
 function viewLoaners(res, req) {
-
+    req.send(JSON.stringify({
+        status: "success",
+        results: borrower.viewLoaners(res.query.uid)
+    }, null, 2))
 }
 
 function viewLoanRequests(res, req) {
