@@ -16,12 +16,18 @@ import { HomePage } from '../pages/home/home';
 import {BorrowerLoginPage} from '../pages/borrower-login/borrower-login';
 import {LoanerLoginPage} from '../pages/loaner-login/loaner-login';
 
+//Import the view pages
+import {BorrowerViewPage} from '../pages/borrower-view/borrower-view';
+import {LoanerViewPage} from '../pages/loaner-view/loaner-view';
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     BorrowerLoginPage,
-    LoanerLoginPage
+    BorrowerViewPage,
+    LoanerLoginPage,
+    LoanerViewPage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +39,9 @@ import {LoanerLoginPage} from '../pages/loaner-login/loaner-login';
     MyApp,
     HomePage,
     BorrowerLoginPage,
-    LoanerLoginPage
+    BorrowerViewPage,
+    LoanerLoginPage,
+    LoanerViewPage
   ],
   providers: [
     StatusBar,
