@@ -1,14 +1,28 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color = "primary">
     <ion-title>
-      Ionic Blank
+      Doggos for World Peace
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+  <div margin class = "home-introduction">
+    <h1 text-center>Welcome to Doggos for World Peace</h1>
+    <h2 text-center>Are you a pet loaner or pet borrower</h2>
+  </div>
+
+  <ion-row>
+    <ion-col>
+      <button (click) = "loginToLoaner()" margin block large ion-button>Pet Loaner</button>
+    </ion-col>
+
+    <ion-col>
+      <button (click) = "loginToBorrower()" margin block large ion-button>Pet Borrower</button>
+    </ion-col>
+
+  </ion-row>
+
+
 </ion-content>
