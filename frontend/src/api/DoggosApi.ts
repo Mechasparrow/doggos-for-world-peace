@@ -131,6 +131,41 @@ export class DoggosApi {
 
   }
 
+  getIncomingPetRequests(loaner_id:number) {
+
+    let that = this;
+
+    var request_promise = new Promise(function (resolve, reject) {
+
+      that.http.get("https://doggos-for-world-peace.herokuapp.com/database.json").subscribe(function (data) {
+
+        var all_pets = (<any>data).pets;
+
+        var requests:any = [];
+
+        var pets:any = all_pets.filter(function (pet:any, index:number) {
+          return parseInt(pet.owner) == loaner_id;
+        })
+
+        pets.map(function (pet, index) {
+          var pet_requests:any = pet.requests.incoming_requests.map(function (request:any) {
+            var new_request:any = request;
+            new_request.pet_id = index;
+          })
+
+          requests = requests.concat(pet_requests);
+        });
+
+        resolve(requests);
+
+      })
+
+    })
+
+    return request_promise;
+
+  }
+
   getIncomingBorrowerRequests(borrower_id:number) {
 
     let that = this;
@@ -153,10 +188,6 @@ export class DoggosApi {
     })
 
     return request_promise;
-
-  }
-
-  getIncomingPetRequests() {
 
   }
 
