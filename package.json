@@ -1,0 +1,19 @@
+{
+  "name": "doggos-for-world-peace",
+  "version": "0.0.0",
+  "description": "We match pet owners with non-pet owners who keep pets company while the owner is away.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mechasparrow/doggos-for-world-peace.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mechasparrow/doggos-for-world-peace/issues"
+  },
+  "homepage": "https://github.com/Mechasparrow/doggos-for-world-peace#readme"
+}
