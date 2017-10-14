@@ -6,13 +6,28 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>LoanerPetViewPage</ion-title>
+  <ion-navbar color = "primary">
+    <ion-title>View your pets</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <ion-card *ngFor = "let pet of loaner_pets">
+    <ion-card-header>
+      {{pet.name}}
+    </ion-card-header>
+
+    <ion-card-content>
+      <img class = "pet-image" src = "{{pet.img}}" />
+      <p>age: {{pet.age}}</p>
+      <p>breed: {{pet.breed}}</p>
+      <p>size: {{pet.size}} </p>
+      <p>care: {{pet.care}} </p>
+      <p>description: {{pet.care}}</p>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
