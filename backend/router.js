@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+require('./db').init()
 
 // ROUTES
 app.get("/user/signup", signup)
@@ -36,6 +37,34 @@ function login(res, req) {
 
 }
 
+/**
+ * Used when a borrower wants to view loaners
+ *
+ * Request is JSON File of the form
+ * {
+ *   "id": "132156686486" // uid as a string
+ * }
+ *
+ * Response is JSON of the form
+ * {
+ *   "status": "success|failure",
+ *   "results": [
+ *      {
+ *          "id": "", // string -- uid of the pet that can be used to get more info upon request
+ *          "name": "", // string
+ *          "breed": "", // string
+ *          "distance": 1000, // In miles
+ *          "img": "" // link to image (string)
+ *
+ *      }
+ *      ...
+ *   ]
+ * }
+ *
+ * Status is always gonna be success cuz this is a hackathon amirite
+ *
+ *
+ * */
 function viewLoaners(res, req) {
 
 }
