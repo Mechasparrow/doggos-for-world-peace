@@ -141,20 +141,33 @@ export class DoggosApi {
 
         var all_pets = (<any>data).pets;
 
+        all_pets = all_pets.map(function (item, index) {
+          var new_pet = item;
+          new_pet.pet_id = index;
+          return new_pet;
+        });
+
         var requests:any = [];
 
         var pets:any = all_pets.filter(function (pet:any, index:number) {
-          return parseInt(pet.owner) == loaner_id;
+          return pet.owner == loaner_id.toString();
         })
 
-        pets.map(function (pet, index) {
-          var pet_requests:any = pet.requests.incoming_requests.map(function (request:any) {
+        pets.map(function (pet) {
+
+          console.log(pet);
+
+          var pet_requests = pet.requests.incoming.map(function (request:any) {
             var new_request:any = request;
-            new_request.pet_id = index;
-          })
+            new_request.pet_id = pet.pet_id;
+
+            return new_request;
+
+          });
 
           requests = requests.concat(pet_requests);
-        });
+
+        })
 
         resolve(requests);
 

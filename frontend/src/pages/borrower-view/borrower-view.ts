@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import {ViewPetsPage} from '../view-pets/view-pets';
 import {ViewRequestsPage} from '../view-requests/view-requests';
+import {MatchsViewPage} from '../matchs-view/matchs-view';
 
 import {Borrower} from '../../models/Borrower';
 
@@ -37,6 +38,15 @@ export class BorrowerViewPage {
       user_type: "borrower",
       borrower_id: this.borrower.borrower_id
     })
+  }
+
+  viewMatches() {
+
+    this.navCtrl.push(MatchsViewPage, {
+      user_type: "borrower",
+      borrower_id: this.borrower.borrower_id
+    });
+
   }
 
   ionViewDidLoad() {

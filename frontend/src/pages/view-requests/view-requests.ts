@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import {Loaner} from '../../models/Loaner';
+import {Borrower} from '../../models/Borrower';
+
 //Import the Doggos api
 import {HttpClient} from "@angular/common/http";
 import {DoggosApi} from '../../api/DoggosApi';
@@ -23,11 +26,24 @@ export class ViewRequestsPage {
   public mode:string = "";
   private doggos_api:DoggosApi;
 
+  public borrowers:Borrower[];
+  public loaners: Loaner[];
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private http_client: HttpClient) {
 
     this.doggos_api = new DoggosApi(this.http_client);
 
     this.mode = this.navParams.get("user_type");
+
+    let that = this;
+    that.doggos_api.getBorrowers().then (function (borrowers) {
+      that.borrowers = <Borrower[]> borrowers;
+    })
+
+    that.doggos_api.getLoaners().then (function (loaners) {
+      that.loaners = <Loaner[]> loaners;
+    })
 
     if (this.mode == "borrower") {
       let that = this;
@@ -36,7 +52,7 @@ export class ViewRequestsPage {
       this.doggos_api.getIncomingBorrowerRequests(borrower_id).then (function (requests) {
         that.incoming_requests = requests;
         console.log(that.incoming_requests);
-      })
+      });
 
     }else if (this.mode == "loaner"){
 
@@ -45,8 +61,7 @@ export class ViewRequestsPage {
 
       that.doggos_api.getIncomingPetRequests(loaner_id).then (function (requests) {
         that.incoming_requests = requests;
-        console.log(that.incoming_requests);
-      })
+      });
 
     }
 
@@ -54,6 +69,14 @@ export class ViewRequestsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ViewRequestsPage');
+  }
+
+  renderOpposer(opposer_id) {
+    if (this.mode == "borrower") {
+      return this.loaners[opposer_id].name;
+    }else if (this.mode == "loaner") {
+      return this.borrowers[opposer_id].name;
+    }
   }
 
 }
