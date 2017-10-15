@@ -105,7 +105,19 @@ function updateBorrowerProfile(res, req) {
 
 }
 
+/**
+ * Used when borrower wants to accept an incoming request from a loaner
+ * ?request_uid=_______&borrower_uid
+ * where request_uid is the index (uid) of the request in the borrower's incoming requests queue
+ *
+ * Returns generic success message
+ * */
 function acceptLoanRequest(res, req) {
+    borrower.acceptRequest(res.query.borrower_uid, res.query.request_uid)
+    req.send(JSON.stringify({
+        "status": "success",
+        "error": null
+    }))
 }
 
 // LOANER METHODS
@@ -173,5 +185,11 @@ function updatePet(res, req) {
 
 }
 
+// Same as acceptLoanRequest except uses pet_uid instead of borower_uid
 function acceptBorrowRequest(res, req) {
+    loaner.acceptRequest(res.query.pet_uid, res.query.request_uid)
+    req.send(JSON.stringify({
+        "status": "success",
+        "error": null
+    }))
 }

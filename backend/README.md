@@ -46,7 +46,7 @@ app.post("/borrower/send/request", sendBorrowRequest)
 
 /**
  * Used when borrower wants to accept an incoming request from a loaner
- * ?request_uid=_______&borrower_uid
+ * ?request_uid=_______&borrower_uid=_____
  * where request_uid is the index (uid) of the request in the borrower's incoming requests queue
  *
  * Returns generic success message
@@ -91,6 +91,8 @@ app.post("/loaner/view/matches", viewMatchesWithBorrowers)
  * */
 
 app.get("/loaner/send/request", sendLoanRequest)
+
+// See the counterpart for borrower/accept/request
 app.get("/loaner/accept/request", acceptBorrowRequest)
 app.get("/loaner/update/profile", updateLoanerProfile)
 app.get("/loaner/update/add_pet", addPet)
