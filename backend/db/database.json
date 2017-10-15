@@ -30,6 +30,7 @@
         "email": "shaggy@gmail.com",
         "phone": "1234567890"
       }
+
     },
     {
       "auth": {
@@ -145,6 +146,7 @@
       "care": "Give him mysteries to solve or he'll tear up his couch",
       "description": "Playful and fun dog, great to hang out with. Unfortunately I can't take care of him when I'm at my day job.",
       "requests": {
+<<<<<<< HEAD
         "incoming": [],
         "outgoing": [
           {
@@ -160,6 +162,17 @@
           "0",
           "3",
           "0"
+=======
+        "incoming": [
+          {
+            "timestamp": 1508024494176,
+            "from": "0"
+          }
+        ],
+        "outgoing": [],
+        "matches": [
+          "2"
+>>>>>>> 69809ca2860330ebe1e512160bada3fcd3b80c76
         ]
       }
     },
@@ -268,7 +281,7 @@
         "name": "Sherlock Holmes",
         "profile": "Part-time detective and full-time dog lover"
       },
-      "img": "http://images4.fanpop.com/image/photos/16800000/-Sherlock-sherlock-16827094-2048-1365.jpg",
+      "img": "https://www.fjackets.com/product_images/a/723/Benedict_Cumberbatch_Sherlock_Coat__78001_zoom.jpg",
       "verified": true,
       "preferences": {
         "sheds": false,
@@ -276,25 +289,18 @@
         "size": "large"
       },
       "requests": {
-        "incoming": [
-          {
-            "timestamp": 1508082041540,
-            "from": "0"
-          }
-        ],
+        "incoming": [],
         "outgoing": [
           {
-            "timestamp": 1508082266679,
+            "timestamp": 1508024494176,
             "to": "0"
+          },
+          {
+            "timestamp": 1508024507000,
+            "to": "1"
           }
         ],
-        "matches": [
-          "0",
-          "0",
-          "0",
-          "0",
-          "0"
-        ]
+        "matches": []
       },
       "contact": {
         "email": "sherlock@gmail.com",
@@ -380,9 +386,7 @@
       "requests": {
         "incoming": [],
         "outgoing": [],
-        "matches": [
-          "0"
-        ]
+        "matches": ["0"]
       },
       "contact": {
         "email": "lizzy@gmail.com",
@@ -425,9 +429,7 @@
       "requests": {
         "incoming": [],
         "outgoing": [],
-        "matches": [
-          "0"
-        ]
+        "matches": []
       },
       "contact": {
         "email": "yuuko@gmail.com",
