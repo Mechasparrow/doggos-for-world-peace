@@ -476,4 +476,20 @@ export class DoggosApi {
 
   }
 
+  acceptBorrowRequest(pet_id, request_id) {
+    let that = this;
+
+    var request_promise = new Promise (function (resolve, reject) {
+
+      that.http.get(backend_host + "/loaner/accept/request" + "?" + "pet_uid=" + pet_id + "&" + "request_uid=" + request_id ).subscribe(function (data) {
+
+        console.log(data);
+        resolve(data);
+      })
+
+    })
+
+    return (request_promise);
+  }
+
 }

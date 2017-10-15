@@ -105,6 +105,27 @@ export class ViewRequestsPage {
   }
 
   confirmLoaner(request:any) {
+    var request_id = request.request_id;
+    var pet_id = request.pet_id;
+    var loaner_id = this.navParams.get("loaner_id");
+
+    let that = this;
+
+    this.doggos_api.acceptBorrowRequest(pet_id, request_id).then (function (result) {
+      alert("You have matched!");
+
+      that.navCtrl.pop();
+
+      that.navCtrl.push(MatchsViewPage, {
+        user_type: "loaner",
+        loaner_id: loaner_id
+      })
+
+    }).catch (function (error) {
+      alert("unable to match");
+    })
+
+
 
   }
 

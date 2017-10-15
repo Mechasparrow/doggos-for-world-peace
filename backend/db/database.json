@@ -145,21 +145,15 @@
       "care": "Give him mysteries to solve or he'll tear up his couch",
       "description": "Playful and fun dog, great to hang out with. Unfortunately I can't take care of him when I'm at my day job.",
       "requests": {
-        "incoming": [
-          {
-            "timestamp": 1508024494176,
-            "from": "0"
-          },
-          {
-            "timestamp": 1508031767372,
-            "from": "0"
-          }
-        ],
+        "incoming": [],
         "outgoing": [],
         "matches": [
           "2",
           "0",
-          "0"
+          "0",
+          "0",
+          "0",
+          "3"
         ]
       }
     },
@@ -277,21 +271,10 @@
       },
       "requests": {
         "incoming": [],
-        "outgoing": [
-          {
-            "timestamp": 1508024494176,
-            "to": "0"
-          },
-          {
-            "timestamp": 1508024507000,
-            "to": "1"
-          },
-          {
-            "timestamp": 1508031767372,
-            "to": "0"
-          }
-        ],
+        "outgoing": [],
         "matches": [
+          "0",
+          "0",
           "0",
           "0"
         ]
@@ -425,7 +408,9 @@
       "requests": {
         "incoming": [],
         "outgoing": [],
-        "matches": []
+        "matches": [
+          "0"
+        ]
       },
       "contact": {
         "email": "yuuko@gmail.com",
