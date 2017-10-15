@@ -6,13 +6,25 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>MatchsViewPage</ion-title>
+  <ion-navbar color = "primary">
+    <ion-title>Matchs View</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <ion-card *ngFor = "let match of matches">
+
+    <ion-card-header>
+      Matched with {{renderOpposer(match.opposer)}}
+    </ion-card-header>
+
+    <ion-card-content>
+
+    </ion-card-content>
+
+  </ion-card>
 
 </ion-content>

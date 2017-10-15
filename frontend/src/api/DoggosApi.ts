@@ -131,6 +131,55 @@ export class DoggosApi {
 
   }
 
+  getPetMatches(loaner_id:number) {
+
+    let that = this;
+
+    var matches_promise = new Promise(function (resolve, reject) {
+
+        that.http.get("https://doggos-for-world-peace.herokuapp.com/database.json").subscribe(function (data) {
+
+          var all_pets = (<any>data).pets;
+
+          all_pets = all_pets.map(function (item, index) {
+            var new_pet = item;
+            new_pet.pet_id = index;
+            return new_pet;
+          });
+
+          var matches:any = [];
+
+          var pets:any = all_pets.filter(function (pet:any, index:number) {
+            return pet.owner == loaner_id.toString();
+          })
+
+          pets.map(function (pet) {
+
+            console.log(pet);
+
+            var pet_matches = pet.requests.matches.map(function (match:any) {
+              var new_match:any = {
+                opposer: match,
+                pet_id: pet.pet_id
+              };
+
+              return new_match;
+
+            });
+
+            matches = matches.concat(pet_matches);
+
+          });
+
+          resolve(matches);
+
+      })
+    });
+
+    return matches_promise;
+
+  }
+
   getIncomingPetRequests(loaner_id:number) {
 
     let that = this;
@@ -176,6 +225,37 @@ export class DoggosApi {
     })
 
     return request_promise;
+
+  }
+
+  getBorrowerMatches(borrower_id:number) {
+
+    let that = this;
+
+    var match_promise = new Promise(function (resolve, reject) {
+
+      that.http.get("https://doggos-for-world-peace.herokuapp.com/database.json").subscribe(function (data) {
+        var borrowers:any = (<any>data).borrowers;
+
+        var borrower:any = borrowers.find(function (item, index) {
+          return index == borrower_id;
+        })
+
+        var matches = borrower.requests.matches.map(function (match) {
+          var new_match:any = {
+            opposer: match
+          }
+
+          return new_match;
+        });
+
+        resolve(matches);
+
+      })
+
+    })
+
+    return match_promise;
 
   }
 

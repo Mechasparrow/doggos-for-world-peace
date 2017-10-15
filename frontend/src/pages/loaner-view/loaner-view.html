@@ -18,7 +18,7 @@
   <h1 text-center>Hello {{loaner.name}}</h1>
 
   <ion-row>
-    <button margin ion-button ion-col block>View Matches</button>
+    <button (click) = "viewMatches()" margin ion-button ion-col block>View Matches</button>
     <button (click) = "viewRequests()" margin ion-button ion-col block>View Requests</button>
   </ion-row>
 

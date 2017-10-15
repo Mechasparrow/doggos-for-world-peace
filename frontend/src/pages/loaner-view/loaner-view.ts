@@ -63,7 +63,7 @@ export class LoanerViewPage {
 
     this.navCtrl.push(MatchsViewPage, {
       user_type: "loaner",
-      owner_id: this.loaner.loaner_id
+      loaner_id: this.loaner.loaner_id
     })
 
   }
