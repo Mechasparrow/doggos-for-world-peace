@@ -18,14 +18,22 @@
   <ion-card *ngFor = "let borrower of borrowers" >
 
     <ion-card-header>
-      {{borrower.name}}
+      <h1>{{borrower.name}}</h1>
     </ion-card-header>
 
     <ion-card-content>
-      <img class = "borrower-image" src = "{{borrower.img}}" />
-      <p>description: {{borrower.profile}}</p>
-      <p>Schedule: From {{borrower.schedule_start}} to {{borrower.schedule_end}}</p>
-      <button ion-button color = "secondary" (click) = "request(borrower.borrower_id)">Request</button>
+      <ion-row>
+        <div col-2>
+          <img class = "borrower-image" src = "{{borrower.img}}" />
+        </div>
+
+        <div col-10>
+          <p><b>Description:</b> {{borrower.profile}}</p>
+          <p><b>Schedule: </b> From {{borrower.schedule_start}} to {{borrower.schedule_end}}</p>
+        </div>
+      </ion-row>
+
+      <button float-right margin ion-button color = "secondary" (click) = "request(borrower.borrower_id)">Request</button>
     </ion-card-content>
 
   </ion-card>
