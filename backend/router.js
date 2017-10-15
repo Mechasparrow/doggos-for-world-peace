@@ -16,7 +16,7 @@ app.get("/borrower/view/loaners", viewLoaners)
 app.get("/borrower/view/requests", viewLoanRequests)
 app.get("/borrower/view/matches", viewMatchesWithLoaners)
 app.post("/borrower/send/request", sendBorrowRequest)
-app.post("/borrower/send/match", sendAcceptLoanRequest)
+app.post("/borrower/accept/request", acceptLoanRequest)
 app.get("/borrower/update/profile", updateBorrowerProfile)
 
 
@@ -24,7 +24,7 @@ app.get("/loaner/view/borrowers", viewBorrowers)
 app.get("/loaner/view/requests", viewBorrowRequests)
 app.post("/loaner/view/matches", viewMatchesWithBorrowers)
 app.get("/loaner/send/request", sendLoanRequest)
-app.get("/loaner/send/match", sendAcceptBorrowRequest)
+app.get("/loaner/accept/request", acceptBorrowRequest)
 app.get("/loaner/update/profile", updateLoanerProfile)
 app.get("/loaner/update/add_pet", addPet)
 app.get("/loaner/update/pet", updatePet)
@@ -105,6 +105,8 @@ function updateBorrowerProfile(res, req) {
 
 }
 
+function acceptLoanRequest(res, req) {
+}
 
 // LOANER METHODS
 
@@ -169,4 +171,7 @@ function addPet(res, req) {
 
 function updatePet(res, req) {
 
+}
+
+function acceptBorrowRequest(res, req) {
 }
