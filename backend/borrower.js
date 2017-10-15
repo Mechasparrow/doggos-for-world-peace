@@ -44,10 +44,15 @@ function acceptRequest(borrower_uid, request_uid) {
 
     const pet_uid = data.borrowers[borrower_uid].requests.incoming[request_uid].from
 
-    delete data.borrowers[borrower_uid].requests.incoming[request_uid]
+    data.borrowers[borrower_uid].requests.splice(request_uid, 1)
+    const removal_idxs = []
     data.pets[pet_uid].requests.outgoing.map(function (req, idx) {
         if (req.to === borrower_uid)
-            delete data.pets[pet_uid].requests.outgoing[idx]
+            removal_idxs.push(idx)
+    })
+
+    removal_idxs.map((idx) => {
+        data.pets[pet_uid].requests.outgoing.splice(idx, 1)
     })
 
     data.pets[pet_uid].matches.push(borrower_uid)
