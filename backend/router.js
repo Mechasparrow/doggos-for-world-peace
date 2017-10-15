@@ -16,15 +16,18 @@ app.get("/borrower/view/loaners", viewLoaners)
 app.get("/borrower/view/requests", viewLoanRequests)
 app.get("/borrower/view/matches", viewMatchesWithLoaners)
 app.post("/borrower/send/request", sendBorrowRequest)
+app.post("/borrower/send/match", sendAcceptLoanRequest)
 app.get("/borrower/update/profile", updateBorrowerProfile)
-app.get("/borrower/update/add_pet", addPet)
-app.get("/borrower/update/pet", updatePet)
+
 
 app.get("/loaner/view/borrowers", viewBorrowers)
 app.get("/loaner/view/requests", viewBorrowRequests)
 app.post("/loaner/view/matches", viewMatchesWithBorrowers)
 app.get("/loaner/send/request", sendLoanRequest)
+app.get("/loaner/send/match", sendAcceptBorrowRequest)
 app.get("/loaner/update/profile", updateLoanerProfile)
+app.get("/loaner/update/add_pet", addPet)
+app.get("/loaner/update/pet", updatePet)
 
 app.use(express.static('backend/db'))
 
@@ -42,6 +45,8 @@ function signup(res, req) {
 function login(res, req) {
 
 }
+
+// BORROWER METHODS
 
 /**
  * Used when a borrower wants to view loaners
@@ -100,13 +105,8 @@ function updateBorrowerProfile(res, req) {
 
 }
 
-function addPet(res, req) {
 
-}
-
-function updatePet(res, req) {
-
-}
+// LOANER METHODS
 
 /**
  * Used when loaner wants to view borrowers
@@ -160,5 +160,13 @@ function sendLoanRequest(res, req) {
 }
 
 function updateLoanerProfile(res, req) {
+
+}
+
+function addPet(res, req) {
+
+}
+
+function updatePet(res, req) {
 
 }
