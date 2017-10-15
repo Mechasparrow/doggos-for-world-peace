@@ -18,7 +18,7 @@
   <ion-card *ngFor = "let request of incoming_requests">
 
     <ion-card-header>
-
+      Request from {{renderOpposer(request.from)}}
     </ion-card-header>
 
     <ion-card-content>

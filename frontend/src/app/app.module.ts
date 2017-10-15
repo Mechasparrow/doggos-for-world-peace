@@ -25,6 +25,7 @@ import {LoanerPetViewPage} from '../pages/loaner-pet-view/loaner-pet-view';
 import {ViewBorrowersPage} from '../pages/view-borrowers/view-borrowers';
 import {ViewPetsPage} from '../pages/view-pets/view-pets';
 import {ViewRequestsPage} from '../pages/view-requests/view-requests';
+import {MatchsViewPage} from '../pages/matchs-view/matchs-view';
 
 import {HttpClientModule} from '@angular/common/http';
 
@@ -40,6 +41,7 @@ import {HttpClientModule} from '@angular/common/http';
     LoanerPetViewPage,
     ViewPetsPage,
     ViewRequestsPage,
+    MatchsViewPage
   ],
   imports: [
     BrowserModule,
@@ -59,6 +61,7 @@ import {HttpClientModule} from '@angular/common/http';
     LoanerPetViewPage,
     ViewPetsPage,
     ViewRequestsPage,
+    MatchsViewPage,
   ],
   providers: [
     StatusBar,
