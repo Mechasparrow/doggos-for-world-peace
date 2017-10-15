@@ -22,6 +22,10 @@
     </ion-card-header>
 
     <ion-card-content>
+      <div>
+        <img class = "request-image" [src] = "renderImage(match)" />
+      </div>
+
       <button (click) = "viewContact(match.opposer)" ion-button color = "secondary">View Contact Info</button>
     </ion-card-content>
 

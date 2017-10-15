@@ -6,8 +6,8 @@ import {Contact} from '../models/Contact';
 import {HttpClient} from '@angular/common/http';
 
 
-var backend_host = "https://doggos-for-world-peace.herokuapp.com";
-//var backend_host = "http://localhost:3000";
+//var backend_host = "https://doggos-for-world-peace.herokuapp.com";
+var backend_host = "http://localhost:3000";
 export class DoggosApi {
 
   constructor(private http: HttpClient) {

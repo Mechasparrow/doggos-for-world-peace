@@ -146,14 +146,20 @@
       "description": "Playful and fun dog, great to hang out with. Unfortunately I can't take care of him when I'm at my day job.",
       "requests": {
         "incoming": [],
-        "outgoing": [],
+        "outgoing": [
+          {
+            "timestamp": 1508082041540,
+            "to": "0"
+          }
+        ],
         "matches": [
           "2",
           "0",
           "0",
           "0",
           "0",
-          "3"
+          "3",
+          "0"
         ]
       }
     },
@@ -270,9 +276,20 @@
         "size": "large"
       },
       "requests": {
-        "incoming": [],
-        "outgoing": [],
+        "incoming": [
+          {
+            "timestamp": 1508082041540,
+            "from": "0"
+          }
+        ],
+        "outgoing": [
+          {
+            "timestamp": 1508082266679,
+            "to": "0"
+          }
+        ],
         "matches": [
+          "0",
           "0",
           "0",
           "0",

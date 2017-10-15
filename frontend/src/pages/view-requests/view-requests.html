@@ -22,7 +22,9 @@
     </ion-card-header>
 
     <ion-card-content>
-
+      <div>
+        <img class = "request-image" [src] = "renderImage(request)" />
+      </div>
       <div *ngIf="mode=='borrower'">
 
         <button (click) = "confirmBorrower(request)" ion-button color = "secondary">Confirm</button>

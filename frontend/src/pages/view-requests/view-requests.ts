@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import {Loaner} from '../../models/Loaner';
 import {Borrower} from '../../models/Borrower';
+import {Pet} from '../../models/Pet';
 
 //Import the Doggos api
 import {HttpClient} from "@angular/common/http";
@@ -30,7 +31,7 @@ export class ViewRequestsPage {
 
   public borrowers:Borrower[];
   public loaners: Loaner[];
-
+  public pets: Pet[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private http_client: HttpClient) {
 
@@ -39,6 +40,11 @@ export class ViewRequestsPage {
     this.mode = this.navParams.get("user_type");
 
     let that = this;
+
+    that.doggos_api.getPets().then (function (pets) {
+      that.pets = <Pet[]> pets;
+    })
+
     that.doggos_api.getBorrowers().then (function (borrowers) {
       that.borrowers = <Borrower[]> borrowers;
     })
@@ -78,6 +84,14 @@ export class ViewRequestsPage {
       return this.loaners[opposer_id].name;
     }else if (this.mode == "loaner") {
       return this.borrowers[opposer_id].name;
+    }
+  }
+
+  renderImage(request) {
+    if (this.mode == "loaner") {
+      return this.borrowers[request.from].img;
+    }else if (this.mode == "borrower") {
+      return "";
     }
   }
 

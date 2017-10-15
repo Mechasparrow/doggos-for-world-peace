@@ -128,6 +128,16 @@ export class MatchsViewPage {
 
   }
 
+  renderImage(match) {
+
+      if (this.user_type == "borrower") {
+        return "";
+      }else if (this.user_type == "loaner") {
+        return this.borrowers[match.opposer].img;
+      }
+
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad MatchsViewPage');
   }
