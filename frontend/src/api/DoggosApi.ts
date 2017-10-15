@@ -6,8 +6,8 @@ import {Contact} from '../models/Contact';
 import {HttpClient} from '@angular/common/http';
 
 
-
-
+//var backend_host = "https://doggos-for-world-peace.herokuapp.com";
+var backend_host = "http://localhost:3000";
 export class DoggosApi {
 
   constructor(private http: HttpClient) {
@@ -42,7 +42,7 @@ export class DoggosApi {
 
     var contact_promise = new Promise (function (resolve, reject) {
 
-      that.http.get('https://doggos-for-world-peace.herokuapp.com/database.json').subscribe(data => {
+      that.http.get(backend_host + "/database.json").subscribe(data => {
 
         var loaners = (<any>data).loaners;
 
@@ -68,7 +68,7 @@ export class DoggosApi {
 
     var contact_promise = new Promise (function (resolve, reject) {
 
-      that.http.get('https://doggos-for-world-peace.herokuapp.com/database.json').subscribe(data => {
+      that.http.get(backend_host + "/database.json").subscribe(data => {
 
         var borrowers = (<any>data).borrowers;
 
@@ -93,7 +93,7 @@ export class DoggosApi {
 
       var pets_promise = new Promise(function (resolve, reject) {
 
-        that.http.get('https://doggos-for-world-peace.herokuapp.com/database.json').subscribe(data => {
+        that.http.get(backend_host + "/database.json").subscribe(data => {
           var pets = (<any>data).pets;
           var pet_keys = Object.keys(<any>pets);
 
@@ -132,7 +132,7 @@ export class DoggosApi {
 
     var borrowers_promise = new Promise(function (resolve, reject) {
 
-      that.http.get('https://doggos-for-world-peace.herokuapp.com/database.json').subscribe(data => {
+      that.http.get(backend_host + "/database.json").subscribe(data => {
         var borrowers = (<any>data).borrowers;
         var borrower_keys = Object.keys(<any>borrowers);
 
@@ -172,7 +172,7 @@ export class DoggosApi {
 
     var loaners_promise = new Promise(function (resolve, reject) {
 
-      that.http.get('https://doggos-for-world-peace.herokuapp.com/database.json').subscribe(data => {
+      that.http.get(backend_host + "/database.json").subscribe(data => {
         var loaners = (<any>data).loaners;
         var loaners_keys = Object.keys(<any>loaners);
 
@@ -213,7 +213,7 @@ export class DoggosApi {
 
     var matches_promise = new Promise(function (resolve, reject) {
 
-        that.http.get("https://doggos-for-world-peace.herokuapp.com/database.json").subscribe(function (data) {
+        that.http.get(backend_host + "/database.json").subscribe(function (data) {
 
           var all_pets = (<any>data).pets;
 
@@ -262,7 +262,7 @@ export class DoggosApi {
 
     var request_promise = new Promise(function (resolve, reject) {
 
-      that.http.get("https://doggos-for-world-peace.herokuapp.com/database.json").subscribe(function (data) {
+      that.http.get(backend_host + "/database.json").subscribe(function (data) {
 
         var all_pets = (<any>data).pets;
 
@@ -282,10 +282,10 @@ export class DoggosApi {
 
           console.log(pet);
 
-          var pet_requests = pet.requests.incoming.map(function (request:any) {
+          var pet_requests = pet.requests.incoming.map(function (request:any, index:number) {
             var new_request:any = request;
             new_request.pet_id = pet.pet_id;
-
+            new_request.request_id = index;
             return new_request;
 
           });
@@ -310,7 +310,7 @@ export class DoggosApi {
 
     var match_promise = new Promise(function (resolve, reject) {
 
-      that.http.get("https://doggos-for-world-peace.herokuapp.com/database.json").subscribe(function (data) {
+      that.http.get(backend_host + "/database.json").subscribe(function (data) {
         var borrowers:any = (<any>data).borrowers;
 
         var borrower:any = borrowers.find(function (item, index) {
@@ -341,14 +341,18 @@ export class DoggosApi {
 
     var request_promise = new Promise(function (resolve, reject) {
 
-      that.http.get("https://doggos-for-world-peace.herokuapp.com/database.json").subscribe(function (data) {
+      that.http.get(backend_host + "/database.json").subscribe(function (data) {
         var borrowers:any = (<any>data).borrowers;
 
         var borrower:any = borrowers.find(function (item, index) {
           return index == borrower_id;
         })
 
-        var incoming_requests = borrower.requests.incoming;
+        var incoming_requests = borrower.requests.incoming.map(function (request, index) {
+          var new_request:any = request;
+          new_request.request_id = index;
+          return new_request
+        })
 
         resolve(incoming_requests);
 
@@ -420,7 +424,7 @@ export class DoggosApi {
 
     var request_promise = new Promise(function (resolve, reject) {
 
-      that.http.get("https://doggos-for-world-peace.herokuapp.com/borrower/send/request" + "?" + "borrower_uid=" + borrower_id + "&" + "pet_uid=" + pet_id ).subscribe(function (data) {
+      that.http.get(backend_host + "/borrower/send/request" + "?" + "borrower_uid=" + borrower_id + "&" + "pet_uid=" + pet_id ).subscribe(function (data) {
 
         console.log(data);
         resolve(data);
@@ -439,7 +443,7 @@ export class DoggosApi {
 
     var request_promise = new Promise(function (resolve, reject) {
 
-      that.http.get("https://doggos-for-world-peace.herokuapp.com/loaner/send/request" + "?" + "borrower_uid=" + borrower_id + "&" + "pet_uid=" + pet_id ).subscribe(function (data) {
+      that.http.get(backend_host + "/loaner/send/request" + "?" + "borrower_uid=" + borrower_id + "&" + "pet_uid=" + pet_id ).subscribe(function (data) {
 
         console.log(data);
         resolve(data);
@@ -449,6 +453,26 @@ export class DoggosApi {
     })
 
     return (request_promise);
+
+  }
+
+  acceptLoanRequest(borrower_id, request_id) {
+
+    let that = this;
+
+    var request_promise = new Promise(function (resolve, reject) {
+
+      that.http.get(backend_host + "/borrower/accept/request" + "?" + "borrower_uid=" + borrower_id + "&" + "request_uid=" + request_id ).subscribe(function (data) {
+
+        console.log(data);
+        resolve(data);
+      })
+
+
+    })
+
+    return (request_promise);
+
 
   }
 

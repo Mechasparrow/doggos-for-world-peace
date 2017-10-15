@@ -8,6 +8,8 @@ import {Borrower} from '../../models/Borrower';
 import {HttpClient} from "@angular/common/http";
 import {DoggosApi} from '../../api/DoggosApi';
 
+import {MatchsViewPage} from '../matchs-view/matchs-view';
+
 /**
  * Generated class for the ViewRequestsPage page.
  *
@@ -77,6 +79,33 @@ export class ViewRequestsPage {
     }else if (this.mode == "loaner") {
       return this.borrowers[opposer_id].name;
     }
+  }
+
+  confirmBorrower(request:any) {
+    var request_id = request.request_id;
+    var borrower_id = this.navParams.get("borrower_id");
+
+    let that = this;
+
+    this.doggos_api.acceptLoanRequest(borrower_id, request_id).then (function (result) {
+      alert ("you have matched!");
+
+      that.navCtrl.pop();
+
+      that.navCtrl.push(MatchsViewPage, {
+        user_type: "borrower",
+        borrower_id: borrower_id
+      })
+
+
+    }).catch (function (error) {
+      alert("unable to match");
+    })
+
+  }
+
+  confirmLoaner(request:any) {
+
   }
 
 }

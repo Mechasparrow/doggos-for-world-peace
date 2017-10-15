@@ -42,9 +42,12 @@ function sendBorrowRequest(borrower_uid, pet_uid) {
 function acceptRequest(borrower_uid, request_uid) {
     const data = db.read()
 
-    const pet_uid = data.borrowers[borrower_uid].requests.incoming[request_uid].from
+    console.log(data.borrowers[parseInt(borrower_uid)])
 
-    data.borrowers[borrower_uid].requests.splice(request_uid, 1)
+    const pet_uid = data.borrowers[parseInt(borrower_uid)].requests.incoming[parseInt(request_uid)].from
+    console.log(pet_uid);
+
+    data.borrowers[parseInt(borrower_uid)].requests.incoming.splice(parseInt(request_uid), 1)
     const removal_idxs = []
     data.pets[pet_uid].requests.outgoing.map(function (req, idx) {
         if (req.to === borrower_uid)
@@ -55,8 +58,8 @@ function acceptRequest(borrower_uid, request_uid) {
         data.pets[pet_uid].requests.outgoing.splice(idx, 1)
     })
 
-    data.pets[pet_uid].matches.push(borrower_uid)
-    data.borrowers[borrower_uid].matches.push(pet_uid)
+    data.pets[pet_uid].requests.matches.push(borrower_uid)
+    data.borrowers[borrower_uid].requests.matches.push(pet_uid)
 
     db.write(data)
 
