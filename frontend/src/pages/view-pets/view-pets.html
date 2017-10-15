@@ -17,20 +17,28 @@
 
   <ion-card *ngFor = "let pet of pets">
     <ion-card-header>
-      {{pet.name}}
+      <h1>{{pet.name}}</h1>
     </ion-card-header>
 
     <ion-card-content>
-      <div>
-        <img class = "pet-image" src = "{{pet.img}}" />
-      </div>
-      <p>age: {{pet.age}}</p>
-      <p>breed: {{pet.breed}}</p>
-      <p>size: {{pet.size}} </p>
-      <p>care: {{pet.care}} </p>
-      <p>description: {{pet.care}}</p>
 
-      <button (click) = "request(pet)" ion-button color = "secondary">Request</button>
+      <ion-row>
+
+        <div col-2>
+          <img class = "pet-image" src = "{{pet.img}}" />
+        </div>
+
+        <div col-10>
+            <p><b>Age:</b> {{pet.age}}</p>
+            <p><b>Breed:</b> {{pet.breed}}</p>
+            <p><b>Size:</b> {{pet.size}} </p>
+            <p><b>Care:</b> {{pet.care}} </p>
+            <p><b>Description:</b> {{pet.care}}</p>
+        </div>
+
+      </ion-row>
+
+      <button margin float-right (click) = "request(pet)" ion-button color = "secondary">Request</button>
     </ion-card-content>
   </ion-card>
 
