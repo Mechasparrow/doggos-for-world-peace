@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 //Import the Pet model
 import { Pet } from '../../models/Pet';
+import {Borrower} from '../../models/Borrower';
+
 
 //Import the Doggos Api
 import {HttpClient} from '@angular/common/http';

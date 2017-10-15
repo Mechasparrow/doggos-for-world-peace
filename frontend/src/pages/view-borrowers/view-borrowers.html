@@ -25,6 +25,7 @@
       <img class = "borrower-image" src = "{{borrower.img}}" />
       <p>description: {{borrower.profile}}</p>
       <p>Schedule: From {{borrower.schedule_start}} to {{borrower.schedule_end}}</p>
+      <button ion-button color = "secondary" (click) = "request(borrower.borrower_id)">Request</button>
     </ion-card-content>
 
   </ion-card>

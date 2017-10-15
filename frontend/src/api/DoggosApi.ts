@@ -433,7 +433,22 @@ export class DoggosApi {
 
   }
 
-  sendLoanRequest() {
+  sendLoanRequest(borrower_id: number, pet_id: number) {
+
+    let that = this;
+
+    var request_promise = new Promise(function (resolve, reject) {
+
+      that.http.get("https://doggos-for-world-peace.herokuapp.com/loaner/send/request" + "?" + "borrower_uid=" + borrower_id + "&" + "pet_uid=" + pet_id ).subscribe(function (data) {
+
+        console.log(data);
+        resolve(data);
+
+      })
+
+    })
+
+    return (request_promise);
 
   }
 

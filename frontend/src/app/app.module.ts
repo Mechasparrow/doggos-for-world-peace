@@ -29,6 +29,9 @@ import {MatchsViewPage} from '../pages/matchs-view/matchs-view';
 import {NewPetPage} from '../pages/new-pet/new-pet';
 import {ViewContactPage} from '../pages/view-contact/view-contact';
 
+//Modals
+import {PetSelectComponent} from '../components/pet-select/pet-select';
+
 import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
@@ -45,7 +48,8 @@ import {HttpClientModule} from '@angular/common/http';
     ViewRequestsPage,
     MatchsViewPage,
     NewPetPage,
-    ViewContactPage
+    ViewContactPage,
+    PetSelectComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,6 +72,7 @@ import {HttpClientModule} from '@angular/common/http';
     MatchsViewPage,
     NewPetPage,
     ViewContactPage,
+    PetSelectComponent
   ],
   providers: [
     StatusBar,

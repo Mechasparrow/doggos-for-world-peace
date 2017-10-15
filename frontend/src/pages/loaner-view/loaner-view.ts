@@ -45,7 +45,9 @@ export class LoanerViewPage {
   }
 
   viewBorrowers() {
-      this.navCtrl.push(ViewBorrowersPage, {});
+      this.navCtrl.push(ViewBorrowersPage, {
+        loaner: this.loaner
+      });
   }
 
   viewPets() {
