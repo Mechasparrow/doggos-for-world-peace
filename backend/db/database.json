@@ -25,7 +25,12 @@
           false,
           false
         ]
+      },
+      "contact": {
+        "email": "shaggy@gmail.com",
+        "phone": "1234567890"
       }
+
     },
     {
       "auth": {
@@ -52,6 +57,10 @@
           false,
           false
         ]
+      },
+      "contact": {
+        "email": "pter@gmail.com",
+        "phone": "9999999999"
       }
     },
     {
@@ -79,6 +88,10 @@
           false,
           false
         ]
+      },
+      "contact": {
+        "email": "jon@gmail.com",
+        "phone": "0001112233"
       }
     },
     {
@@ -106,6 +119,10 @@
           true,
           true
         ]
+      },
+      "contact": {
+        "email": "hakase@gmail.com",
+        "phone": "1234567777"
       }
     }
   ],
@@ -136,7 +153,9 @@
           }
         ],
         "outgoing": [],
-        "matches": []
+        "matches": [
+          "2"
+        ]
       }
     },
     {
@@ -264,6 +283,10 @@
           }
         ],
         "matches": []
+      },
+      "contact": {
+        "email": "sherlock@gmail.com",
+        "phone": "1114445654"
       }
     },
     {
@@ -303,6 +326,10 @@
         "incoming": [],
         "outgoing": [],
         "matches": []
+      },
+      "contact": {
+        "email": "quagmire@gmail.com",
+        "phone": "1235554444"
       }
     },
     {
@@ -341,7 +368,11 @@
       "requests": {
         "incoming": [],
         "outgoing": [],
-        "matches": []
+        "matches": ["0"]
+      },
+      "contact": {
+        "email": "lizzy@gmail.com",
+        "phone": "2312314564"
       }
     },
     {
@@ -381,6 +412,10 @@
         "incoming": [],
         "outgoing": [],
         "matches": []
+      },
+      "contact": {
+        "email": "yuuko@gmail.com",
+        "phone": "5551113333"
       }
     }
   ]
