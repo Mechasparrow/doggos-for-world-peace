@@ -10,13 +10,16 @@ import {DoggosApi} from "../../api/DoggosApi";
 
 import {Loaner} from '../../models/Loaner';
 import {Borrower} from '../../models/Borrower';
-
+import {Pet} from '../../models/Pet';
+import {Contact} from '../../models/Contact';
 /**
  * Generated class for the MatchsViewPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+
+import {ViewContactPage} from '../view-contact/view-contact';
 
 @IonicPage()
 @Component({
@@ -30,6 +33,7 @@ export class MatchsViewPage {
   public user_type:string = "";
   public loaners: Loaner[];
   public borrowers: Borrower[];
+  public pets: Pet[];
 
   private doggos_api:DoggosApi;
 
@@ -39,6 +43,12 @@ export class MatchsViewPage {
     this.user_type = navParams.get("user_type");
 
     let that = this;
+
+    that.doggos_api.getPets().then (function (pets) {
+
+      that.pets = <Pet[]>pets;
+
+    })
 
     that.doggos_api.getLoaners().then (function (loaners) {
       that.loaners = <Loaner[]> loaners;
@@ -73,13 +83,50 @@ export class MatchsViewPage {
   renderOpposer(opposer_id) {
 
     if (this.user_type == "borrower") {
-      return this.loaners[opposer_id].name;
+      return this.pets[opposer_id].name;
     }else if (this.user_type == "loaner") {
       return this.borrowers[opposer_id].name;
     }
 
   }
 
+  viewContact(opposer_id) {
+
+    let that = this;
+
+    if (this.user_type == "borrower") {
+
+      var pet:Pet = this.pets[opposer_id];
+      var name:string = "";
+
+      that.doggos_api.getPetOwner(pet).then (function (owner) {
+        name = (<Loaner>owner).name;
+        return that.doggos_api.getLoanerContact(<Loaner>owner);
+      }).then (function (contact: Contact) {
+
+        that.navCtrl.push(ViewContactPage, {
+          name: name,
+          contact: contact
+        })
+
+      })
+
+    }else if (this.user_type == "loaner") {
+
+      var borrower:Borrower = this.borrowers[opposer_id];
+
+      that.doggos_api.getBorrowerContact(borrower).then (function (contact: Contact) {
+
+        that.navCtrl.push(ViewContactPage, {
+          name: borrower.name,
+          contact: contact
+        })
+
+      })
+
+    }
+
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MatchsViewPage');

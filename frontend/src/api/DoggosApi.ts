@@ -1,6 +1,7 @@
 import {Loaner} from "../models/Loaner";
 import {Borrower} from "../models/Borrower";
 import {Pet} from '../models/Pet';
+import {Contact} from '../models/Contact';
 
 import {HttpClient} from '@angular/common/http';
 
@@ -11,6 +12,80 @@ export class DoggosApi {
 
   constructor(private http: HttpClient) {
 
+  }
+
+  getPetOwner(pet:Pet) {
+
+    let that = this;
+
+    var owner_promise = new Promise(function (resolve, reject) {
+
+      that.getLoaners().then (function (loaners:any) {
+        var owner = loaners.find(function (loaner) {
+          return loaner.loaner_id == pet.owner_id;
+        })
+
+        resolve(owner);
+      }).catch (function (error) {
+        reject(error);
+      })
+
+    })
+
+    return owner_promise;
+
+  }
+
+  getLoanerContact(our_loaner:Loaner) {
+
+    let that = this;
+
+    var contact_promise = new Promise (function (resolve, reject) {
+
+      that.http.get('https://doggos-for-world-peace.herokuapp.com/database.json').subscribe(data => {
+
+        var loaners = (<any>data).loaners;
+
+        var loaner:any = loaners.find (function (loaner, index) {
+          return index == our_loaner.loaner_id;
+        })
+
+        var contact:Contact = <Contact> loaner.contact;
+
+        resolve(contact);
+
+      })
+
+
+    })
+
+    return contact_promise;
+
+  }
+
+  getBorrowerContact(our_borrower:Borrower) {
+    let that = this;
+
+    var contact_promise = new Promise (function (resolve, reject) {
+
+      that.http.get('https://doggos-for-world-peace.herokuapp.com/database.json').subscribe(data => {
+
+        var borrowers = (<any>data).borrowers;
+
+        var borrower:any = borrowers.find (function (borrower, index) {
+          return index == our_borrower.borrower_id;
+        })
+
+        var contact:Contact = <Contact> borrower.contact;
+
+        resolve(contact);
+
+      })
+
+
+    })
+
+    return contact_promise;
   }
 
   getPets() {
