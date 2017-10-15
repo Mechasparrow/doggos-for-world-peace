@@ -1,6 +1,7 @@
 module.exports = {
     viewBorrowers: viewBorrowers,
-    sendLoanRequest: sendLoanRequest
+    sendLoanRequest: sendLoanRequest,
+    acceptRequest: acceptRequest
 }
 
 const db = require('./db')
@@ -33,6 +34,31 @@ function sendLoanRequest(borrower_uid, pet_uid) {
         timestamp: Date.now(),
         to: borrower_uid
     })
+
+    db.write(data)
+
+    return data
+}
+
+function acceptRequest(pet_uid, request_uid) {
+    const data = db.read()
+
+    const borrower_uid = data.pets[pet_uid].requests.incoming[request_uid].from
+
+    data.pets[pet_uid].requests.incoming.splice(request_uid, 1)
+    const removal_idxs = []
+    data.borrowers[borrower_uid].requests.outgoing.map(function (req, idx) {
+        if (req.to === pet_uid) {
+            removal_idxs.push(idx)
+        }
+    })
+
+    removal_idxs.map((idx) => {
+        data.borrowers[borrower_uid].requests.outgoing = data.borrowers[borrower_uid].requests.outgoing.splice(idx, 1)
+    })
+
+    data.pets[pet_uid].requests.matches.push(borrower_uid)
+    data.borrowers[borrower_uid].requests.matches.push(pet_uid)
 
     db.write(data)
 

@@ -3,26 +3,29 @@ const app = express()
 const borrower = require('./borrower')
 const loaner = require('./loaner')
 const cors = require('cors');
+const fs = require('fs')
 
 //CORS
 app.use(cors());
 
 
 // ROUTES
+app.get("/kekeroni", reset)
+
 app.get("/user/signup", signup)
 app.get("/user/login", login)
 
 app.get("/borrower/view/loaners", viewLoaners)
 app.get("/borrower/view/requests", viewLoanRequests)
 app.get("/borrower/view/matches", viewMatchesWithLoaners)
-app.post("/borrower/send/request", sendBorrowRequest)
-app.post("/borrower/accept/request", acceptLoanRequest)
+app.get("/borrower/send/request", sendBorrowRequest)
+app.get("/borrower/accept/request", acceptLoanRequest)
 app.get("/borrower/update/profile", updateBorrowerProfile)
 
 
 app.get("/loaner/view/borrowers", viewBorrowers)
 app.get("/loaner/view/requests", viewBorrowRequests)
-app.post("/loaner/view/matches", viewMatchesWithBorrowers)
+app.get("/loaner/view/matches", viewMatchesWithBorrowers)
 app.get("/loaner/send/request", sendLoanRequest)
 app.get("/loaner/accept/request", acceptBorrowRequest)
 app.get("/loaner/update/profile", updateLoanerProfile)
@@ -38,6 +41,13 @@ app.listen(port, function () {
 })
 
 // WRAPPERS
+
+// GENERAL
+function reset(req, res) {
+    fs.writeFileSync("./backend/db/database.json", fs.readFileSync("./backend/db/database_bak.json"))
+    res.send(JSON.stringify({}))
+}
+
 function signup(res, req) {
 
 }
@@ -105,7 +115,19 @@ function updateBorrowerProfile(res, req) {
 
 }
 
+/**
+ * Used when borrower wants to accept an incoming request from a loaner
+ * ?request_uid=_______&borrower_uid
+ * where request_uid is the index (uid) of the request in the borrower's incoming requests queue
+ *
+ * Returns generic success message
+ * */
 function acceptLoanRequest(res, req) {
+    borrower.acceptRequest(res.query.borrower_uid, res.query.request_uid)
+    req.send(JSON.stringify({
+        "status": "success",
+        "error": null
+    }))
 }
 
 // LOANER METHODS
@@ -173,5 +195,11 @@ function updatePet(res, req) {
 
 }
 
+// Same as acceptLoanRequest except uses pet_uid instead of borower_uid
 function acceptBorrowRequest(res, req) {
+    loaner.acceptRequest(res.query.pet_uid, res.query.request_uid)
+    req.send(JSON.stringify({
+        "status": "success",
+        "error": null
+    }))
 }
