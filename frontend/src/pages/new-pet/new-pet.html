@@ -1,0 +1,58 @@
+<!--
+  Generated template for the NewPetPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color = "primary">
+    <ion-title>Post a Pet</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <form (ngSubmit) = "onSubmit()">
+      <ion-item>
+        <ion-label>Name:</ion-label>
+        <ion-input type = "text" [(ngModel)] = "pet.name" name = "name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Image link</ion-label>
+        <ion-input type = "text" [(ngModel)] = "pet.img" name = "img" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Age</ion-label>
+        <ion-input type = "number" [(ngModel)] = "pet.age" name = "age"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Medical information</ion-label>
+        <ion-textarea rows = "3" [(ngModel)] = "pet.medical" name = "medical"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Personality</ion-label>
+        <ion-textarea rows = "3" [(ngModel)] = "pet.personality" name = "personality"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Care</ion-label>
+        <ion-textarea rows = "3" [(ngModel)] = "pet.care" name = "care"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Description:</ion-label>
+        <ion-textarea rows = "3" [(ngModel)] = "pet.description" name = "description"></ion-textarea>
+      </ion-item>
+
+      <button type = "submit" ion-button>Submit</button>
+
+    </form>
+
+</ion-content>

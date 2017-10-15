@@ -14,6 +14,8 @@ import {ViewBorrowersPage} from '../view-borrowers/view-borrowers';
 import {ViewRequestsPage} from '../view-requests/view-requests';
 import {MatchsViewPage} from '../matchs-view/matchs-view';
 
+import {NewPetPage} from '../new-pet/new-pet';
+
 /**
  * Generated class for the LoanerViewPage page.
  *
@@ -50,6 +52,14 @@ export class LoanerViewPage {
     this.navCtrl.push(LoanerPetViewPage, {
       loaner: this.loaner
     });
+  }
+
+  createPet() {
+
+    this.navCtrl.push(NewPetPage, {
+      loaner_id: this.loaner.loaner_id
+    })
+
   }
 
   viewRequests() {
