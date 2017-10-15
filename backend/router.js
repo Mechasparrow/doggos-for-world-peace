@@ -3,12 +3,15 @@ const app = express()
 const borrower = require('./borrower')
 const loaner = require('./loaner')
 const cors = require('cors');
+const fs = require('fs')
 
 //CORS
 app.use(cors());
 
 
 // ROUTES
+app.get("/kekeroni", reset)
+
 app.get("/user/signup", signup)
 app.get("/user/login", login)
 
@@ -38,6 +41,13 @@ app.listen(port, function () {
 })
 
 // WRAPPERS
+
+// GENERAL
+function reset(req, res) {
+    fs.writeFileSync("./backend/db/database.json", fs.readFileSync("./backend/db/database_bak.json"))
+    res.send(JSON.stringify({}))
+}
+
 function signup(res, req) {
 
 }
