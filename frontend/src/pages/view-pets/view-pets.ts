@@ -23,10 +23,13 @@ import {DoggosApi} from '../../api/DoggosApi';
 export class ViewPetsPage {
 
   public pets: Pet[] = [];
+  public borrower: Borrower;
   private doggos_api: DoggosApi;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private http_client: HttpClient) {
     this.doggos_api = new DoggosApi(this.http_client);
+
+    this.borrower = navParams.get("borrower");
 
     let that = this;
 
@@ -36,6 +39,16 @@ export class ViewPetsPage {
 
     }).then (function () {
       console.log(that.pets);
+    })
+
+  }
+
+  request(pet:Pet) {
+
+    this.doggos_api.sendBorrowRequest(this.borrower.borrower_id, pet.pet_id).then (function (result) {
+      alert("request sent!");
+    }).catch (function (error) {
+      alert("unable to send request");
     })
 
   }

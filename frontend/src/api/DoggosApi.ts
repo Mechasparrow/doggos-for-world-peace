@@ -97,10 +97,11 @@ export class DoggosApi {
           var pets = (<any>data).pets;
           var pet_keys = Object.keys(<any>pets);
 
-          var new_pets = (<any>pet_keys).map(function (item) {
+          var new_pets = (<any>pet_keys).map(function (item, index) {
             var selected_pet:any = pets[item];
             var pet = <Pet> {
               name: selected_pet.name,
+              pet_id: index,
               owner_id: parseInt(selected_pet.owner),
               img: selected_pet.img,
               age: selected_pet.age,
@@ -410,6 +411,29 @@ export class DoggosApi {
 
     return login_promise;
 
+
+  }
+
+  sendBorrowRequest(borrower_id: number, pet_id: number) {
+
+    let that = this;
+
+    var request_promise = new Promise(function (resolve, reject) {
+
+      that.http.get("https://doggos-for-world-peace.herokuapp.com/borrower/send/request" + "?" + "borrower_uid=" + borrower_id + "&" + "pet_uid=" + pet_id ).subscribe(function (data) {
+
+        console.log(data);
+        resolve(data);
+
+      })
+
+    })
+
+    return (request_promise);
+
+  }
+
+  sendLoanRequest() {
 
   }
 

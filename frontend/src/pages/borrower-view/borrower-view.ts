@@ -30,7 +30,9 @@ export class BorrowerViewPage {
   }
 
   viewPets() {
-    this.navCtrl.push(ViewPetsPage, {});
+    this.navCtrl.push(ViewPetsPage, {
+      borrower: this.borrower
+    });
   }
 
   viewRequests() {
